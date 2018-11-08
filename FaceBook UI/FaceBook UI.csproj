@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\..\..\..\Desktop\Studies\Design Patterns\01_FB01_BasicFacebookFeatures.V6.8.0.15\FBApi\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FbGraphApiWrapper">
+      <HintPath>..\..\..\..\Desktop\Studies\Design Patterns\01_FB01_BasicFacebookFeatures.V6.8.0.15\FBApi\FbGraphApiWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -90,13 +96,13 @@
     <None Include="Resources\Login.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logout.png" />
+    <ProjectReference Include="..\FB Logic\FB Logic.csproj">
+      <Project>{85db8a7a-ff59-481d-a7ee-c96a067a93f7}</Project>
+      <Name>FB Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logout2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\login2.png" />
+    <None Include="Resources\logout4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

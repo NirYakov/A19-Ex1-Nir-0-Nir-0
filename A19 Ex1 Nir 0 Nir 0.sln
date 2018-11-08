@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A19 Ex1 Nir 0 Nir 0", "A19 Ex1 Nir 0 Nir 0\A19 Ex1 Nir 0 Nir 0.csproj", "{F8A722EF-3BD9-4947-8F2D-B5F94C508132}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C7B5A462-DAF2-4166-B054-BC7DAF78C4FA}"
+	ProjectSection(SolutionItems) = preProject
+		A19 Ex1 Nir 0 Nir 0\Facebook.dll = A19 Ex1 Nir 0 Nir 0\Facebook.dll
+		A19 Ex1 Nir 0 Nir 0\FbGraphApiWrapper.dll = A19 Ex1 Nir 0 Nir 0\FbGraphApiWrapper.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceBook UI", "FaceBook UI\FaceBook UI.csproj", "{F8A722EF-3BD9-4947-8F2D-B5F94C508132}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB Logic", "FB Logic\FB Logic.csproj", "{85DB8A7A-FF59-481D-A7EE-C96A067A93F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,10 @@ Global
 		{F8A722EF-3BD9-4947-8F2D-B5F94C508132}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A722EF-3BD9-4947-8F2D-B5F94C508132}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A722EF-3BD9-4947-8F2D-B5F94C508132}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85DB8A7A-FF59-481D-A7EE-C96A067A93F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85DB8A7A-FF59-481D-A7EE-C96A067A93F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85DB8A7A-FF59-481D-A7EE-C96A067A93F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85DB8A7A-FF59-481D-A7EE-C96A067A93F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
