@@ -58,6 +58,7 @@ namespace A19_Ex1_Nir_0_Nir_0
                 r_UserManager.Login();
                 this.Text = r_UserManager.UserName;
                 pictureBoxUser.LoadAsync(r_UserManager.UserPictureUrl);
+                pictureBoxCoverPic.LoadAsync(r_UserManager.UserPictureUrlCover);
                 InitializationAfterLogIn();
             }
             catch (Exception ex)
@@ -86,7 +87,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             {
                 labelFriendsNum.Text = friendsNumber.ToString();
             }
-
         }
 
         private void fetchPosts()
@@ -117,7 +117,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             {
                 labelPostsNum.Text = postsNum.ToString();
             }
-
         }
 
         private void displaySelectedFriend()

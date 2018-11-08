@@ -61,5 +61,10 @@ namespace FB_Logic
         {
             FacebookService.Logout(new Action (() => { }) );
         }
+
+        public string UserPictureUrlCover
+        {
+            get { return m_LoggedInUser.Cover.SourceURL; }
+        }
     }
 }

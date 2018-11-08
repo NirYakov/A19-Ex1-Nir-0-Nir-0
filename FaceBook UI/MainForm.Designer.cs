@@ -60,10 +60,12 @@
             this.labelPostsStatus = new System.Windows.Forms.Label();
             this.labelFriendsNum = new System.Windows.Forms.Label();
             this.labelFriendsStatus = new System.Windows.Forms.Label();
+            this.pictureBoxCoverPic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPic)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxUser
@@ -71,7 +73,7 @@
             this.pictureBoxUser.ErrorImage = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
             this.pictureBoxUser.Image = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
             this.pictureBoxUser.InitialImage = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
-            this.pictureBoxUser.Location = new System.Drawing.Point(22, 25);
+            this.pictureBoxUser.Location = new System.Drawing.Point(41, 150);
             this.pictureBoxUser.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxUser.Name = "pictureBoxUser";
             this.pictureBoxUser.Size = new System.Drawing.Size(250, 250);
@@ -82,7 +84,7 @@
             // textBoxPost
             // 
             this.textBoxPost.Enabled = false;
-            this.textBoxPost.Location = new System.Drawing.Point(492, 77);
+            this.textBoxPost.Location = new System.Drawing.Point(492, 295);
             this.textBoxPost.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPost.Multiline = true;
             this.textBoxPost.Name = "textBoxPost";
@@ -92,7 +94,7 @@
             // btnPost
             // 
             this.btnPost.Enabled = false;
-            this.btnPost.Location = new System.Drawing.Point(940, 25);
+            this.btnPost.Location = new System.Drawing.Point(940, 348);
             this.btnPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnPost.Name = "btnPost";
             this.btnPost.Size = new System.Drawing.Size(116, 40);
@@ -105,7 +107,7 @@
             this.linkFriends.AutoSize = true;
             this.linkFriends.Enabled = false;
             this.linkFriends.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
-            this.linkFriends.Location = new System.Drawing.Point(28, 477);
+            this.linkFriends.Location = new System.Drawing.Point(28, 715);
             this.linkFriends.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkFriends.Name = "linkFriends";
             this.linkFriends.Size = new System.Drawing.Size(512, 54);
@@ -119,7 +121,7 @@
             // pictureBoxFriend
             // 
             this.pictureBoxFriend.Enabled = false;
-            this.pictureBoxFriend.Location = new System.Drawing.Point(364, 671);
+            this.pictureBoxFriend.Location = new System.Drawing.Point(364, 909);
             this.pictureBoxFriend.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxFriend.Name = "pictureBoxFriend";
             this.pictureBoxFriend.Size = new System.Drawing.Size(200, 200);
@@ -132,7 +134,7 @@
             this.listBoxFriends.Enabled = false;
             this.listBoxFriends.FormattingEnabled = true;
             this.listBoxFriends.ItemHeight = 25;
-            this.listBoxFriends.Location = new System.Drawing.Point(28, 554);
+            this.listBoxFriends.Location = new System.Drawing.Point(28, 792);
             this.listBoxFriends.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(304, 479);
@@ -142,7 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(488, 40);
+            this.label3.Location = new System.Drawing.Point(488, 263);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 25);
@@ -154,7 +156,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Enabled = false;
             this.linkLabel1.LinkArea = new System.Windows.Forms.LinkArea(0, 17);
-            this.linkLabel1.Location = new System.Drawing.Point(676, 367);
+            this.linkLabel1.Location = new System.Drawing.Point(676, 605);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(346, 54);
@@ -168,7 +170,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Enabled = false;
             this.linkLabel2.LinkArea = new System.Windows.Forms.LinkArea(0, 14);
-            this.linkLabel2.Location = new System.Drawing.Point(676, 596);
+            this.linkLabel2.Location = new System.Drawing.Point(676, 834);
             this.linkLabel2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(369, 54);
@@ -182,7 +184,7 @@
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Enabled = false;
             this.linkLabel3.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
-            this.linkLabel3.Location = new System.Drawing.Point(676, 827);
+            this.linkLabel3.Location = new System.Drawing.Point(676, 1065);
             this.linkLabel3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(363, 54);
@@ -197,7 +199,7 @@
             this.listBoxPages.Enabled = false;
             this.listBoxPages.FormattingEnabled = true;
             this.listBoxPages.ItemHeight = 25;
-            this.listBoxPages.Location = new System.Drawing.Point(676, 433);
+            this.listBoxPages.Location = new System.Drawing.Point(676, 671);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxPages.Name = "listBoxPages";
             this.listBoxPages.Size = new System.Drawing.Size(380, 154);
@@ -209,7 +211,7 @@
             this.listBoxCheckins.Enabled = false;
             this.listBoxCheckins.FormattingEnabled = true;
             this.listBoxCheckins.ItemHeight = 25;
-            this.listBoxCheckins.Location = new System.Drawing.Point(676, 662);
+            this.listBoxCheckins.Location = new System.Drawing.Point(676, 900);
             this.listBoxCheckins.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxCheckins.Name = "listBoxCheckins";
             this.listBoxCheckins.Size = new System.Drawing.Size(380, 154);
@@ -221,7 +223,7 @@
             this.listBoxEvents.Enabled = false;
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 25;
-            this.listBoxEvents.Location = new System.Drawing.Point(676, 892);
+            this.listBoxEvents.Location = new System.Drawing.Point(676, 1130);
             this.listBoxEvents.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxEvents.Name = "listBoxEvents";
             this.listBoxEvents.Size = new System.Drawing.Size(380, 154);
@@ -234,17 +236,17 @@
             this.listBoxPosts.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxPosts.FormattingEnabled = true;
             this.listBoxPosts.ItemHeight = 39;
-            this.listBoxPosts.Location = new System.Drawing.Point(492, 158);
+            this.listBoxPosts.Location = new System.Drawing.Point(492, 398);
             this.listBoxPosts.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(437, 160);
+            this.listBoxPosts.Size = new System.Drawing.Size(564, 199);
             this.listBoxPosts.TabIndex = 88;
             // 
             // linkPosts
             // 
             this.linkPosts.AutoSize = true;
             this.linkPosts.Enabled = false;
-            this.linkPosts.Location = new System.Drawing.Point(490, 127);
+            this.linkPosts.Location = new System.Drawing.Point(490, 365);
             this.linkPosts.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkPosts.Name = "linkPosts";
             this.linkPosts.Size = new System.Drawing.Size(126, 25);
@@ -256,7 +258,7 @@
             // btnFeature1
             // 
             this.btnFeature1.Enabled = false;
-            this.btnFeature1.Location = new System.Drawing.Point(40, 312);
+            this.btnFeature1.Location = new System.Drawing.Point(40, 550);
             this.btnFeature1.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature1.Name = "btnFeature1";
             this.btnFeature1.Size = new System.Drawing.Size(120, 44);
@@ -267,7 +269,7 @@
             // btnFeature2
             // 
             this.btnFeature2.Enabled = false;
-            this.btnFeature2.Location = new System.Drawing.Point(40, 377);
+            this.btnFeature2.Location = new System.Drawing.Point(40, 615);
             this.btnFeature2.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature2.Name = "btnFeature2";
             this.btnFeature2.Size = new System.Drawing.Size(120, 44);
@@ -279,7 +281,7 @@
             // 
             this.pictureBoxLogOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxLogOut.Image = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.logout4;
-            this.pictureBoxLogOut.Location = new System.Drawing.Point(300, 56);
+            this.pictureBoxLogOut.Location = new System.Drawing.Point(325, 301);
             this.pictureBoxLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxLogOut.Name = "pictureBoxLogOut";
             this.pictureBoxLogOut.Size = new System.Drawing.Size(50, 50);
@@ -293,7 +295,7 @@
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogin.Location = new System.Drawing.Point(300, 56);
+            this.btnLogin.Location = new System.Drawing.Point(325, 301);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(120, 50);
@@ -317,7 +319,7 @@
             this.panel1.Controls.Add(this.labelFriendsNum);
             this.panel1.Controls.Add(this.labelFriendsStatus);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 1112);
+            this.panel1.Location = new System.Drawing.Point(0, 1383);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1089, 45);
             this.panel1.TabIndex = 94;
@@ -436,11 +438,22 @@
             this.labelFriendsStatus.TabIndex = 95;
             this.labelFriendsStatus.Text = "Friends:";
             // 
+            // pictureBoxCoverPic
+            // 
+            this.pictureBoxCoverPic.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.pictureBoxCoverPic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxCoverPic.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxCoverPic.Name = "pictureBoxCoverPic";
+            this.pictureBoxCoverPic.Size = new System.Drawing.Size(1089, 243);
+            this.pictureBoxCoverPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCoverPic.TabIndex = 96;
+            this.pictureBoxCoverPic.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 1157);
+            this.ClientSize = new System.Drawing.Size(1089, 1428);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBoxLogOut);
             this.Controls.Add(this.btnFeature2);
@@ -461,6 +474,7 @@
             this.Controls.Add(this.textBoxPost);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBoxUser);
+            this.Controls.Add(this.pictureBoxCoverPic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -473,6 +487,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,5 +526,6 @@
         private System.Windows.Forms.Label labelFriendsNum;
         private System.Windows.Forms.Label labelFriendsStatus;
         private System.Windows.Forms.Panel panelActive;
+        private System.Windows.Forms.PictureBox pictureBoxCoverPic;
     }
 }
