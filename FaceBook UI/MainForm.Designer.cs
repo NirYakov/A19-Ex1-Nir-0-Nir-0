@@ -107,7 +107,7 @@
             this.linkFriends.AutoSize = true;
             this.linkFriends.Enabled = false;
             this.linkFriends.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
-            this.linkFriends.Location = new System.Drawing.Point(28, 715);
+            this.linkFriends.Location = new System.Drawing.Point(28, 625);
             this.linkFriends.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkFriends.Name = "linkFriends";
             this.linkFriends.Size = new System.Drawing.Size(512, 54);
@@ -121,7 +121,7 @@
             // pictureBoxFriend
             // 
             this.pictureBoxFriend.Enabled = false;
-            this.pictureBoxFriend.Location = new System.Drawing.Point(364, 909);
+            this.pictureBoxFriend.Location = new System.Drawing.Point(356, 854);
             this.pictureBoxFriend.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxFriend.Name = "pictureBoxFriend";
             this.pictureBoxFriend.Size = new System.Drawing.Size(200, 200);
@@ -134,10 +134,10 @@
             this.listBoxFriends.Enabled = false;
             this.listBoxFriends.FormattingEnabled = true;
             this.listBoxFriends.ItemHeight = 25;
-            this.listBoxFriends.Location = new System.Drawing.Point(28, 792);
+            this.listBoxFriends.Location = new System.Drawing.Point(28, 717);
             this.listBoxFriends.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxFriends.Name = "listBoxFriends";
-            this.listBoxFriends.Size = new System.Drawing.Size(304, 479);
+            this.listBoxFriends.Size = new System.Drawing.Size(304, 554);
             this.listBoxFriends.TabIndex = 83;
             this.listBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
@@ -258,7 +258,7 @@
             // btnFeature1
             // 
             this.btnFeature1.Enabled = false;
-            this.btnFeature1.Location = new System.Drawing.Point(40, 550);
+            this.btnFeature1.Location = new System.Drawing.Point(41, 476);
             this.btnFeature1.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature1.Name = "btnFeature1";
             this.btnFeature1.Size = new System.Drawing.Size(120, 44);
@@ -269,7 +269,7 @@
             // btnFeature2
             // 
             this.btnFeature2.Enabled = false;
-            this.btnFeature2.Location = new System.Drawing.Point(40, 615);
+            this.btnFeature2.Location = new System.Drawing.Point(41, 541);
             this.btnFeature2.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature2.Name = "btnFeature2";
             this.btnFeature2.Size = new System.Drawing.Size(120, 44);
@@ -319,7 +319,7 @@
             this.panel1.Controls.Add(this.labelFriendsNum);
             this.panel1.Controls.Add(this.labelFriendsStatus);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 1383);
+            this.panel1.Location = new System.Drawing.Point(0, 1384);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1089, 45);
             this.panel1.TabIndex = 94;
@@ -453,7 +453,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 1428);
+            this.ClientSize = new System.Drawing.Size(1089, 1429);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBoxLogOut);
             this.Controls.Add(this.btnFeature2);
