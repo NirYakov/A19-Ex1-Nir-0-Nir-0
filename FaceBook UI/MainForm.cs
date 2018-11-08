@@ -20,7 +20,6 @@ namespace A19_Ex1_Nir_0_Nir_0
         {
             InitializeComponent();
             r_UserManager = new UserManager();
-
         }
 
         private void InitializationAfterLogIn()
@@ -57,11 +56,9 @@ namespace A19_Ex1_Nir_0_Nir_0
             try
             {
                 r_UserManager.Login();
-
                 this.Text = r_UserManager.UserName;
                 pictureBoxUser.LoadAsync(r_UserManager.UserPictureUrl);
                 InitializationAfterLogIn();
-
             }
             catch (Exception ex)
             {
@@ -87,7 +84,8 @@ namespace A19_Ex1_Nir_0_Nir_0
             }
             else
             {
-                labelFriendsNum.Text = friendsNumber.ToString();            }
+                labelFriendsNum.Text = friendsNumber.ToString();
+            }
 
         }
 
@@ -114,7 +112,8 @@ namespace A19_Ex1_Nir_0_Nir_0
             if (postsNum == 0)
             {
                 MessageBox.Show("No Posts to retrieve :(");
-            } else
+            }
+            else
             {
                 labelPostsNum.Text = postsNum.ToString();
             }
