@@ -36,9 +36,9 @@
             this.pictureBoxFriend = new System.Windows.Forms.PictureBox();
             this.listBoxFriends = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkPages = new System.Windows.Forms.LinkLabel();
+            this.linkCheckins = new System.Windows.Forms.LinkLabel();
+            this.labelEvents = new System.Windows.Forms.LinkLabel();
             this.listBoxPages = new System.Windows.Forms.ListBox();
             this.listBoxCheckins = new System.Windows.Forms.ListBox();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
@@ -61,11 +61,15 @@
             this.labelFriendsNum = new System.Windows.Forms.Label();
             this.labelFriendsStatus = new System.Windows.Forms.Label();
             this.pictureBoxCoverPic = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxUser
@@ -73,7 +77,7 @@
             this.pictureBoxUser.ErrorImage = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
             this.pictureBoxUser.Image = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
             this.pictureBoxUser.InitialImage = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
-            this.pictureBoxUser.Location = new System.Drawing.Point(41, 150);
+            this.pictureBoxUser.Location = new System.Drawing.Point(45, 141);
             this.pictureBoxUser.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxUser.Name = "pictureBoxUser";
             this.pictureBoxUser.Size = new System.Drawing.Size(250, 250);
@@ -101,6 +105,7 @@
             this.btnPost.TabIndex = 3;
             this.btnPost.Text = "Posts";
             this.btnPost.UseVisualStyleBackColor = true;
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
             // 
             // linkFriends
             // 
@@ -151,47 +156,50 @@
             this.label3.TabIndex = 84;
             this.label3.Text = "Post Status:";
             // 
-            // linkLabel1
+            // linkPages
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Enabled = false;
-            this.linkLabel1.LinkArea = new System.Windows.Forms.LinkArea(0, 17);
-            this.linkLabel1.Location = new System.Drawing.Point(676, 605);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(346, 54);
-            this.linkLabel1.TabIndex = 74;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Fetch Liked Pages \r\n(Click on a page to view it\'s picture)";
-            this.linkLabel1.UseCompatibleTextRendering = true;
+            this.linkPages.AutoSize = true;
+            this.linkPages.Enabled = false;
+            this.linkPages.LinkArea = new System.Windows.Forms.LinkArea(0, 17);
+            this.linkPages.Location = new System.Drawing.Point(676, 605);
+            this.linkPages.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.linkPages.Name = "linkPages";
+            this.linkPages.Size = new System.Drawing.Size(346, 54);
+            this.linkPages.TabIndex = 74;
+            this.linkPages.TabStop = true;
+            this.linkPages.Text = "Fetch Liked Pages \r\n(Click on a page to view it\'s picture)";
+            this.linkPages.UseCompatibleTextRendering = true;
+            this.linkPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPages_LinkClicked);
             // 
-            // linkLabel2
+            // linkCheckins
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Enabled = false;
-            this.linkLabel2.LinkArea = new System.Windows.Forms.LinkArea(0, 14);
-            this.linkLabel2.Location = new System.Drawing.Point(676, 834);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(369, 54);
-            this.linkLabel2.TabIndex = 79;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Fetch Checkins \r\n(Click on a checkin to view it\'s details)";
-            this.linkLabel2.UseCompatibleTextRendering = true;
+            this.linkCheckins.AutoSize = true;
+            this.linkCheckins.Enabled = false;
+            this.linkCheckins.LinkArea = new System.Windows.Forms.LinkArea(0, 14);
+            this.linkCheckins.Location = new System.Drawing.Point(676, 834);
+            this.linkCheckins.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.linkCheckins.Name = "linkCheckins";
+            this.linkCheckins.Size = new System.Drawing.Size(369, 54);
+            this.linkCheckins.TabIndex = 79;
+            this.linkCheckins.TabStop = true;
+            this.linkCheckins.Text = "Fetch Checkins \r\n(Click on a checkin to view it\'s details)";
+            this.linkCheckins.UseCompatibleTextRendering = true;
+            this.linkCheckins.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCheckins_LinkClicked);
             // 
-            // linkLabel3
+            // labelEvents
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Enabled = false;
-            this.linkLabel3.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
-            this.linkLabel3.Location = new System.Drawing.Point(676, 1065);
-            this.linkLabel3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(363, 54);
-            this.linkLabel3.TabIndex = 80;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Fetch Events \r\n(Click on an event to view it\'s picture)";
-            this.linkLabel3.UseCompatibleTextRendering = true;
+            this.labelEvents.AutoSize = true;
+            this.labelEvents.Enabled = false;
+            this.labelEvents.LinkArea = new System.Windows.Forms.LinkArea(0, 13);
+            this.labelEvents.Location = new System.Drawing.Point(676, 1065);
+            this.labelEvents.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelEvents.Name = "labelEvents";
+            this.labelEvents.Size = new System.Drawing.Size(363, 54);
+            this.labelEvents.TabIndex = 80;
+            this.labelEvents.TabStop = true;
+            this.labelEvents.Text = "Fetch Events \r\n(Click on an event to view it\'s picture)";
+            this.labelEvents.UseCompatibleTextRendering = true;
+            this.labelEvents.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelEvents_LinkClicked);
             // 
             // listBoxPages
             // 
@@ -202,8 +210,9 @@
             this.listBoxPages.Location = new System.Drawing.Point(676, 671);
             this.listBoxPages.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxPages.Name = "listBoxPages";
-            this.listBoxPages.Size = new System.Drawing.Size(380, 154);
+            this.listBoxPages.Size = new System.Drawing.Size(412, 154);
             this.listBoxPages.TabIndex = 85;
+            this.listBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
             // listBoxCheckins
             // 
@@ -214,7 +223,7 @@
             this.listBoxCheckins.Location = new System.Drawing.Point(676, 900);
             this.listBoxCheckins.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxCheckins.Name = "listBoxCheckins";
-            this.listBoxCheckins.Size = new System.Drawing.Size(380, 154);
+            this.listBoxCheckins.Size = new System.Drawing.Size(412, 154);
             this.listBoxCheckins.TabIndex = 86;
             // 
             // listBoxEvents
@@ -226,8 +235,9 @@
             this.listBoxEvents.Location = new System.Drawing.Point(676, 1130);
             this.listBoxEvents.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(380, 154);
+            this.listBoxEvents.Size = new System.Drawing.Size(412, 154);
             this.listBoxEvents.TabIndex = 87;
+            this.listBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
             // 
             // listBoxPosts
             // 
@@ -258,7 +268,7 @@
             // btnFeature1
             // 
             this.btnFeature1.Enabled = false;
-            this.btnFeature1.Location = new System.Drawing.Point(41, 476);
+            this.btnFeature1.Location = new System.Drawing.Point(45, 476);
             this.btnFeature1.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature1.Name = "btnFeature1";
             this.btnFeature1.Size = new System.Drawing.Size(120, 44);
@@ -321,14 +331,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 1384);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1089, 45);
+            this.panel1.Size = new System.Drawing.Size(1115, 45);
             this.panel1.TabIndex = 94;
             // 
             // panelActive
             // 
             this.panelActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panelActive.BackColor = System.Drawing.Color.Red;
-            this.panelActive.Location = new System.Drawing.Point(1044, 0);
+            this.panelActive.Location = new System.Drawing.Point(1070, 0);
             this.panelActive.Name = "panelActive";
             this.panelActive.Size = new System.Drawing.Size(45, 45);
             this.panelActive.TabIndex = 95;
@@ -444,16 +454,38 @@
             this.pictureBoxCoverPic.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxCoverPic.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxCoverPic.Name = "pictureBoxCoverPic";
-            this.pictureBoxCoverPic.Size = new System.Drawing.Size(1089, 243);
+            this.pictureBoxCoverPic.Size = new System.Drawing.Size(1115, 243);
             this.pictureBoxCoverPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCoverPic.TabIndex = 96;
             this.pictureBoxCoverPic.TabStop = false;
+            // 
+            // pictureBoxEvent
+            // 
+            this.pictureBoxEvent.Location = new System.Drawing.Point(564, 1184);
+            this.pictureBoxEvent.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxEvent.Name = "pictureBoxEvent";
+            this.pictureBoxEvent.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxEvent.TabIndex = 97;
+            this.pictureBoxEvent.TabStop = false;
+            // 
+            // pictureBoxPage
+            // 
+            this.pictureBoxPage.Location = new System.Drawing.Point(564, 671);
+            this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBoxPage.Name = "pictureBoxPage";
+            this.pictureBoxPage.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPage.TabIndex = 98;
+            this.pictureBoxPage.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 1429);
+            this.ClientSize = new System.Drawing.Size(1115, 1429);
+            this.Controls.Add(this.pictureBoxPage);
+            this.Controls.Add(this.pictureBoxEvent);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBoxLogOut);
             this.Controls.Add(this.btnFeature2);
@@ -466,9 +498,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBoxFriends);
             this.Controls.Add(this.pictureBoxFriend);
-            this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.labelEvents);
+            this.Controls.Add(this.linkCheckins);
+            this.Controls.Add(this.linkPages);
             this.Controls.Add(this.linkFriends);
             this.Controls.Add(this.btnPost);
             this.Controls.Add(this.textBoxPost);
@@ -488,6 +520,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -502,9 +536,9 @@
         private System.Windows.Forms.PictureBox pictureBoxFriend;
         private System.Windows.Forms.ListBox listBoxFriends;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkPages;
+        private System.Windows.Forms.LinkLabel linkCheckins;
+        private System.Windows.Forms.LinkLabel labelEvents;
         private System.Windows.Forms.ListBox listBoxPages;
         private System.Windows.Forms.ListBox listBoxCheckins;
         private System.Windows.Forms.ListBox listBoxEvents;
@@ -527,5 +561,7 @@
         private System.Windows.Forms.Label labelFriendsStatus;
         private System.Windows.Forms.Panel panelActive;
         private System.Windows.Forms.PictureBox pictureBoxCoverPic;
+        private System.Windows.Forms.PictureBox pictureBoxEvent;
+        private System.Windows.Forms.PictureBox pictureBoxPage;
     }
 }

@@ -33,21 +33,15 @@ namespace A19_Ex1_Nir_0_Nir_0
             btnPost.Enabled = true;
             linkPosts.Enabled = true;
             listBoxPosts.Enabled = true;
-            linkLabel1.Enabled = true;
+            linkPages.Enabled = true;
             listBoxPages.Enabled = true;
-            linkLabel2.Enabled = true;
+            linkCheckins.Enabled = true;
             listBoxCheckins.Enabled = true;
-            linkLabel3.Enabled = true;
+            labelEvents.Enabled = true;
             listBoxEvents.Enabled = true;
-
             panelActive.BackColor = Color.Chartreuse;
-
             btnLogin.Visible = false;
             pictureBoxLogOut.Visible = true;
-        }
-
-        private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -67,6 +61,11 @@ namespace A19_Ex1_Nir_0_Nir_0
             }
         }
 
+        private void linkFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fetchFriends();
+        }
+
         private void fetchFriends()
         {
             listBoxFriends.Items.Clear();
@@ -78,7 +77,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             }
 
             int friendsNumber = r_UserManager.User.Friends.Count;
-
             if (friendsNumber == 0)
             {
                 MessageBox.Show("No Friends to retrieve :(");
@@ -87,6 +85,11 @@ namespace A19_Ex1_Nir_0_Nir_0
             {
                 labelFriendsNum.Text = friendsNumber.ToString();
             }
+        }
+
+        private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fetchPosts();
         }
 
         private void fetchPosts()
@@ -108,7 +111,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             }
 
             int postsNum = r_UserManager.User.Posts.Count;
-
             if (postsNum == 0)
             {
                 MessageBox.Show("No Posts to retrieve :(");
@@ -117,6 +119,11 @@ namespace A19_Ex1_Nir_0_Nir_0
             {
                 labelPostsNum.Text = postsNum.ToString();
             }
+        }
+
+        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displaySelectedFriend();
         }
 
         private void displaySelectedFriend()
@@ -139,21 +146,132 @@ namespace A19_Ex1_Nir_0_Nir_0
         {
             r_UserManager.UserLogOut();
             this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
-        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnPost_Click(object sender, EventArgs e)
         {
-            displaySelectedFriend();
+            try
+            {
+                r_UserManager.PostStatus(textBoxPost.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+@"Can't post status right now,
+Back later . :(");
+            }
         }
 
-        private void linkFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void labelEvents_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            fetchFriends();
+            fetchEvents();
         }
 
-        private void linkPosts_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void fetchEvents()
         {
-            fetchPosts();
+            try
+            {
+                listBoxEvents.Items.Clear();
+                listBoxEvents.DisplayMember = "Name";
+                foreach (Event fbEvent in r_UserManager.User.Events)
+                {
+                    listBoxEvents.Items.Add(fbEvent);
+                }
+
+                labelEventsNum.Text = r_UserManager.User.Events.Count.ToString();
+                if (r_UserManager.User.Events.Count == 0)
+                {
+                    MessageBox.Show("No Events to retrieve :(");
+                }
+            }
+            catch (Exception)
+            {
+                ErrorMessage("Events");
+            }
+        }
+
+        private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxEvents.SelectedItems.Count == 1)
+            {
+                if (listBoxEvents.SelectedItems.Count == 1)
+                {
+                    Event selectedEvent = listBoxEvents.SelectedItem as Event;
+                    pictureBoxEvent.LoadAsync(selectedEvent.PictureNormalURL);
+                }
+            }
+        }
+
+        private void linkCheckins_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fetchCheckins();
+        }
+
+        private void fetchCheckins()
+        {
+            try
+            {
+                foreach (Checkin checkin in r_UserManager.User.Checkins)
+                {
+                    listBoxCheckins.Items.Add(checkin.Place.Name);
+                }
+
+                labelCheckinsNum.Text = r_UserManager.User.Checkins.Count.ToString();
+                if (r_UserManager.User.Checkins.Count == 0)
+                {
+                    MessageBox.Show("No Checkins to retrieve :(");
+                }
+            }
+            catch (Exception)
+            {
+                ErrorMessage("Checkins");
+            }
+        }
+
+        private void linkPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            fetchPages();
+        }
+
+        private void fetchPages()
+        {
+            try
+            {
+                listBoxPages.Items.Clear();
+                listBoxPages.DisplayMember = "Name";
+
+                foreach (Page page in r_UserManager.User.LikedPages)
+                {
+                    listBoxPages.Items.Add(page);
+                }
+
+                labelLikedPagesNum.Text = r_UserManager.User.LikedPages.Count.ToString();
+                if (r_UserManager.User.LikedPages.Count == 0)
+                {
+                    MessageBox.Show("No liked pages to retrieve :(");
+                }
+            }
+            catch (Exception)
+            {
+                ErrorMessage("Liked Pages");
+            }
+        }
+
+        private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxPages.SelectedItems.Count == 1)
+            {
+                Page selectedPage = listBoxPages.SelectedItem as Page;
+                pictureBoxPage.LoadAsync(selectedPage.PictureNormalURL);
+            }
+        }
+
+        private void ErrorMessage(string i_ErrorSource)
+        {
+            MessageBox.Show(
+@"Error occurred in {0}
+Plase try later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

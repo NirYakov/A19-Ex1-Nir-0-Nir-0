@@ -12,24 +12,31 @@ namespace FB_Logic
     {
         private const string k_AppID = "317399492389792";
         private const string k_GuyAppID = "1450160541956417";
-        private LoginResult m_LoginResult;
+        // private LoginResult m_LoginResult;
         private User m_LoggedInUser;
 
         public UserManager()
-        {            
+        {
         }
 
         public void Login()
         {
             LoginResult m_LoginResult = FacebookService.Login(
-                // k_AppID ,
+                // k_AppID,
                 k_GuyAppID ,
-                        "public_profile",
-                       "user_events",
-                       "user_likes",
-                       "user_photos",
-                       "user_birthday",
-                       "user_posts"
+            "public_profile",
+            "user_birthday",
+            "user_friends",
+            "user_events",
+            "user_hometown",
+            "user_likes",
+            "user_location",
+            "user_photos",
+            "user_posts",
+            "user_tagged_places",
+            "user_videos",
+            "manage_pages",
+            "publish_pages"
            );
 
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
@@ -59,12 +66,27 @@ namespace FB_Logic
 
         public void UserLogOut()
         {
-            FacebookService.Logout(new Action (() => { }) );
+            FacebookService.Logout(new Action(() => { }));
         }
 
         public string UserPictureUrlCover
         {
             get { return m_LoggedInUser.Cover.SourceURL; }
         }
+
+        public string PostStatus(string i_Text)
+        {
+            Status status = m_LoggedInUser.PostStatus(i_Text);
+            return string.Format("Status Posted. ID: {0}", status.Id);
+        }
+
+        #region trys permissiom
+        //"public_profile",
+        //                "user_events",
+        //                "user_likes",
+        //                "user_photos",
+        //                "user_birthday",
+        //                "user_posts"
+        #endregion
     }
 }
