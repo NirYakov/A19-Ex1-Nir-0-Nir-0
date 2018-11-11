@@ -80,6 +80,39 @@ namespace FB_Logic
             return string.Format("Status Posted. ID: {0}", status.Id);
         }
 
+        public List<Post> GetPostsList()
+        {
+          
+            List<Post> userPosts = new List<Post>();
+            try
+            {
+                foreach (Post post in m_LoggedInUser.Posts)
+                {
+                    userPosts.Add(post);
+                }
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+            return userPosts;
+        }
+
+        public int CountWordNumOfAppears(string i_Word)
+        {
+            List<Post> userPosts = GetPostsList();
+            int counter = 0;
+            foreach(Post userpost in userPosts)
+            {
+                string strPost = userpost.Caption.ToString();
+                if(strPost.Contains(i_Word))
+                {
+                    counter++;
+                }
+            }
+
+            return 1;
+        }
+
         #region trys permissiom
         //"public_profile",
         //                "user_events",

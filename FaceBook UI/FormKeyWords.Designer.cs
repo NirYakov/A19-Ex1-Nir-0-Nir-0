@@ -28,66 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
             this.lable_keyword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxWordToSearch = new System.Windows.Forms.TextBox();
             this.btn_keywordsearch = new System.Windows.Forms.Button();
+            this.lable_test = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(12, 95);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(542, 395);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // lable_keyword
             // 
             this.lable_keyword.AutoSize = true;
-            this.lable_keyword.Location = new System.Drawing.Point(29, 44);
+            this.lable_keyword.Location = new System.Drawing.Point(44, 68);
+            this.lable_keyword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lable_keyword.Name = "lable_keyword";
-            this.lable_keyword.Size = new System.Drawing.Size(54, 13);
+            this.lable_keyword.Size = new System.Drawing.Size(77, 20);
             this.lable_keyword.TabIndex = 1;
             this.lable_keyword.Text = "KeyWord:";
             // 
-            // textBox1
+            // textBoxWordToSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxWordToSearch.Location = new System.Drawing.Point(134, 63);
+            this.textBoxWordToSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxWordToSearch.Name = "textBoxWordToSearch";
+            this.textBoxWordToSearch.Size = new System.Drawing.Size(238, 26);
+            this.textBoxWordToSearch.TabIndex = 2;
             // 
             // btn_keywordsearch
             // 
-            this.btn_keywordsearch.Location = new System.Drawing.Point(255, 40);
+            this.btn_keywordsearch.Location = new System.Drawing.Point(382, 62);
+            this.btn_keywordsearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_keywordsearch.Name = "btn_keywordsearch";
-            this.btn_keywordsearch.Size = new System.Drawing.Size(54, 20);
+            this.btn_keywordsearch.Size = new System.Drawing.Size(81, 31);
             this.btn_keywordsearch.TabIndex = 3;
             this.btn_keywordsearch.Text = "Search";
             this.btn_keywordsearch.UseVisualStyleBackColor = true;
+            this.btn_keywordsearch.Click += new System.EventHandler(this.btn_keywordsearch_Click);
+            // 
+            // lable_test
+            // 
+            this.lable_test.AutoSize = true;
+            this.lable_test.Location = new System.Drawing.Point(339, 206);
+            this.lable_test.Name = "lable_test";
+            this.lable_test.Size = new System.Drawing.Size(51, 20);
+            this.lable_test.TabIndex = 4;
+            this.lable_test.Text = "label1";
             // 
             // FormKeyWords
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 502);
+            this.ClientSize = new System.Drawing.Size(849, 772);
+            this.Controls.Add(this.lable_test);
             this.Controls.Add(this.btn_keywordsearch);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxWordToSearch);
             this.Controls.Add(this.lable_keyword);
-            this.Controls.Add(this.listView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormKeyWords";
             this.Text = "FormKeyWords";
+            this.Load += new System.EventHandler(this.FormKeyWords_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label lable_keyword;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxWordToSearch;
         private System.Windows.Forms.Button btn_keywordsearch;
+        private System.Windows.Forms.Label lable_test;
     }
 }

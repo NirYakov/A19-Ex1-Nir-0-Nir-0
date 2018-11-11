@@ -560,4 +560,4 @@
         private System.Windows.Forms.PictureBox pictureBoxEvent;
         private System.Windows.Forms.PictureBox pictureBoxPage;
     }
-}
+} 
