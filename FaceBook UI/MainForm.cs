@@ -273,5 +273,11 @@ Back later . :(");
 @"Error occurred in {0}
 Plase try later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void btnFeature2_Click(object sender, EventArgs e)
+        {
+            FormKeyWords formKeyWord = new FormKeyWords();
+            formKeyWord.ShowDialog();
+        }
     }
 }
