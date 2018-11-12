@@ -51,9 +51,9 @@ namespace A19_Ex1_Nir_0_Nir_0
             {
                 r_UserManager.Login();
                 this.Text = r_UserManager.UserName;
+                InitializationAfterLogIn();
                 pictureBoxUser.LoadAsync(r_UserManager.UserPictureUrl);
                 pictureBoxCoverPic.LoadAsync(r_UserManager.UserPictureUrlCover);
-                InitializationAfterLogIn();
             }
             catch (Exception ex)
             {
@@ -278,6 +278,11 @@ Plase try later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         {
             FormKeyWords formKeyWord = new FormKeyWords();
             formKeyWord.ShowDialog();
+        }
+
+        private void btnFeature1_Click(object sender, EventArgs e)
+        {
+            (new UsersValue(r_UserManager.User)).ShowDialog(); 
         }
     }
 }

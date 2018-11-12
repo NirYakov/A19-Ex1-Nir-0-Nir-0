@@ -39,6 +39,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Album Helpers\AlbumManager.cs" />
+    <Compile Include="Album Helpers\AlbumWrapper.cs" />
+    <Compile Include="Album Helpers\FetchHandler.cs" />
+    <Compile Include="Album Helpers\UserInfo.cs" />
+    <Compile Include="Stars.cs" />
+    <Compile Include="UserAnalysis.cs" />
     <Compile Include="UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
