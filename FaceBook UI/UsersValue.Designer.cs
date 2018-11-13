@@ -80,6 +80,8 @@
             this.panelMainData = new System.Windows.Forms.Panel();
             this.buttonLoadMe = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.imageList222 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBoxAdvenceOpt.SuspendLayout();
             this.groupBoxInteraction.SuspendLayout();
@@ -593,6 +595,7 @@
             // 
             this.panelMainData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelMainData.Controls.Add(this.listView2);
             this.panelMainData.Controls.Add(this.buttonLoadMe);
             this.panelMainData.Controls.Add(this.button1);
             this.panelMainData.Controls.Add(this.buttonInteraction);
@@ -625,6 +628,20 @@
             this.buttonHelp.TabIndex = 49;
             this.buttonHelp.Text = "?";
             this.buttonHelp.UseVisualStyleBackColor = false;
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(24, 715);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(374, 242);
+            this.listView2.TabIndex = 42;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // imageList222
+            // 
+            this.imageList222.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList222.ImageSize = new System.Drawing.Size(80, 80);
+            this.imageList222.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // UsersValue
             // 
@@ -709,5 +726,7 @@
         private System.Windows.Forms.Label labelGoldStarsInteraction;
         private System.Windows.Forms.Label labelGoldStars;
         private System.Windows.Forms.Button buttonLoadMe;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ImageList imageList222;
     }
 }

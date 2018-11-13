@@ -53,6 +53,7 @@
     <Compile Include="Album Helpers\AlbumWrapper.cs" />
     <Compile Include="Album Helpers\FetchHandler.cs" />
     <Compile Include="Album Helpers\UserInfo.cs" />
+    <Compile Include="PhotosAnalysist.cs" />
     <Compile Include="Stars.cs" />
     <Compile Include="UserAnalysis.cs" />
     <Compile Include="UserManager.cs" />

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace A19_Ex1_Nir_0_Nir_0
         private AlbumManager m_AlbumsManager;
         private readonly List<PictureTopBar> r_PictureTopBars;
         private UserAnalysis m_LoadedUserAnalysis;
+        private PhotosManager m_PhotosAnalysist;
         private int initSortGroupBoxHeight = 0;
 
         public UsersValue(User i_User)
@@ -29,6 +31,7 @@ namespace A19_Ex1_Nir_0_Nir_0
 
 
             m_AlbumsManager = new AlbumManager(r_UserAnalysis.UserIn.Albums);
+            m_PhotosAnalysist = new PhotosManager() { MyAlbums = r_UserAnalysis.UserIn.Albums };
             r_PictureTopBars = new List<PictureTopBar>();
 
             initSortGroupBoxHeight = groupBoxSortOpt.Height;
@@ -108,6 +111,7 @@ namespace A19_Ex1_Nir_0_Nir_0
             labelBDay.Text = i_UserAnalysis.UserIn.Birthday;
             m_LoadedUserAnalysis = i_UserAnalysis;
             m_AlbumsManager.AlbumCollection = i_UserAnalysis.UserIn.Albums;
+            m_PhotosAnalysist.MyAlbums = i_UserAnalysis.UserIn.Albums;
         }
 
         private void buttonInteraction_Click(object sender, EventArgs e)
@@ -247,7 +251,8 @@ Try Later");
             listView1.Clear();
             imageList1.Images.Clear();
 
-            FetchHandler.Fetch(m_AlbumsManager.GetAllAlbums(), imageList1, listView1);
+            //FetchHandler.Fetch(m_AlbumsManager.GetAllAlbums(), imageList1, listView1);
+            Fetch();
         }
 
         private void buttonGetPhotos_Click(object sender, EventArgs e)
@@ -258,7 +263,11 @@ Try Later");
                 listView1.Clear();
                 imageList1.Images.Clear();
 
+
+
                 AlbumWrapper album = m_AlbumsManager.GetAlbum(index);
+
+                
 
                 FetchHandler.Fetch(album.GetPhotos(), imageList1, listView1);
             }
@@ -287,6 +296,40 @@ Try Later");
             {
                 item.LabelText.Text = item.MyUserAnalysis.UserIn.Name;
                 flowLayoutPanel1.Controls.Add(item);
+            }
+        }
+
+        public void Fetch()
+        {
+            //LinkedList<UserInfo> i_Collection, ImageList i_ImagLst, ListView i_ViewLst;
+            PhotosManager photosManager = new PhotosManager() { MyAlbums = m_LoadedUserAnalysis.UserIn.Albums };   // m_LoadedUserAnalysis.UserIn
+            List<ItemInfo> allAlbums = (List<ItemInfo>) photosManager.BringAllAlbums();
+
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageSize = new Size(80, 80);
+            listView1.View = View.LargeIcon;
+            listView1.LargeImageList = imageList1;
+
+            int indexer = 0;
+            ListViewItem item;
+            foreach (ItemInfo itemInfo in allAlbums)
+            {
+                var request = WebRequest.Create(itemInfo.ItemUrl);
+                using (var response = request.GetResponse())
+                using (var stream = response.GetResponseStream())
+                {
+                    imageList1.Images.Add(Bitmap.FromStream(stream));
+                }
+
+                item = new ListViewItem();
+                item.ImageIndex = indexer++;
+                item.Text = itemInfo.ItemName;
+                listView1.Items.Add(item);
+            }
+
+            if (indexer == 0)
+            {
+                MessageBox.Show("Nothing!");
             }
         }
     }
