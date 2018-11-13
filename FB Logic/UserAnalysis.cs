@@ -12,69 +12,11 @@ namespace FB_Logic
         public User UserIn { get; set; }
 
         public Stars MyStars { get; }
-
-        public int? m_PostInteraction;
-        public int? m_EventInteraction;
-        public int? m_CheckinInteraction;
-        public int? m_TaggedInteraction;
-
+        
         public UserAnalysis()
         {
             MyStars = new Stars();
         }
-
-        public int PostInteraction
-        {
-            get
-            {
-                if (!m_PostInteraction.HasValue)
-                {
-                    m_PostInteraction = NumberOfInterctionInPosts();
-                }
-
-                return m_PostInteraction.Value;
-            }
-        }
-
-        public int EventInteraction
-        {
-            get
-            {
-                if (!m_EventInteraction.HasValue)
-                {
-                    m_EventInteraction = NumberOfInteractionInEvents();
-                }
-
-                return m_EventInteraction.Value;
-            }
-        }
-
-        public int CheckinInteraction
-        {
-            get
-            {
-                if (!m_CheckinInteraction.HasValue)
-                {
-                    m_CheckinInteraction = NumberOfCheckinInteraction();
-                }
-
-                return m_CheckinInteraction.Value;
-            }
-        }
-
-        public int TaggedInteraction
-        {
-            get
-            {
-                if (!m_TaggedInteraction.HasValue)
-                {
-                    m_TaggedInteraction = NumberOfTagged();
-                }
-
-                return m_TaggedInteraction.Value;
-            }
-        }
-
 
         public int NumberOfInterctionInPosts()
         {
@@ -172,22 +114,6 @@ namespace FB_Logic
         {
             return this.MyStars.CompareTo(other.MyStars);
         }
-
-        public void ResetNullablesFields()
-        {
-            // m_PostInteraction , m_EventInteraction ,m_CheckinInteraction , m_TaggedInteraction
-            m_PostInteraction = m_EventInteraction = m_CheckinInteraction = m_TaggedInteraction = null;
-            
-        }
-
-        //public int InteractonByLikeAndComment<T>(ICollection<T> i_Aggregit)
-        //{
-        //    int sumInteractions = 0;
-        //    foreach (T item in i_Aggregit)
-        //    {
-
-        //    }
-        //}
 
         [Flags]
         public enum eStarsParameters

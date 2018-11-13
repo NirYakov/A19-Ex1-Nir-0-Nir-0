@@ -108,7 +108,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             labelBDay.Text = i_UserAnalysis.UserIn.Birthday;
            
             m_AlbumsManager.AlbumCollection = i_UserAnalysis.UserIn.Albums;
-            i_UserAnalysis.ResetNullablesFields();
         }
 
         private void buttonInteraction_Click(object sender, EventArgs e)
@@ -119,7 +118,6 @@ namespace A19_Ex1_Nir_0_Nir_0
                 {
                     List<int> interactions = new List<int>();
 
-                  //  m_LoadedUserAnalysis.ResetNullablesFields();
                     labelNameInteraction.Text = m_LoadedUserAnalysis.UserIn.Name;
 
                     interactions.Add(m_LoadedUserAnalysis.NumberOfCheckinInteraction());
@@ -218,27 +216,30 @@ Try Later");
                 chosenParams |= UserAnalysis.eStarsParameters.tagged;
             }
 
-            PictureTopBarStarSort ptbStarSort = new PictureTopBarStarSort();
+            if (chosenParams != UserAnalysis.eStarsParameters.none) {
 
-            try
-            {
-                foreach (PictureTopBar item in r_PictureTopBars)
-                {
-                    item.MyUserAnalysis.clacStarsFromAnalisis(chosenParams);
-                }
+                PictureTopBarStarSort ptbStarSort = new PictureTopBarStarSort();
 
-                r_PictureTopBars.Sort(ptbStarSort);
-                flowLayoutPanel1.Controls.Clear();
-                foreach (PictureTopBar item in r_PictureTopBars)
+                try
                 {
-                    item.LabelText.Text = string.Format( "{0} Gold ,{1} normal stars"
-                        ,item.MyUserAnalysis.MyStars.GoldenStars , item.MyUserAnalysis.MyStars.NormalStars);
-                    flowLayoutPanel1.Controls.Add(item);
+                    foreach (PictureTopBar item in r_PictureTopBars)
+                    {
+                        item.MyUserAnalysis.clacStarsFromAnalisis(chosenParams);
+                    }
+
+                    r_PictureTopBars.Sort(ptbStarSort);
+                    flowLayoutPanel1.Controls.Clear();
+                    foreach (PictureTopBar item in r_PictureTopBars)
+                    {
+                        item.LabelText.Text = string.Format("{0} Gold ,{1} normal stars"
+                            , item.MyUserAnalysis.MyStars.GoldenStars, item.MyUserAnalysis.MyStars.NormalStars);
+                        flowLayoutPanel1.Controls.Add(item);
+                    }
                 }
-            }
-            catch (Exception)
-            {
-                ServiceNotAvailableMessage();
+                catch (Exception)
+                {
+                    ServiceNotAvailableMessage();
+                }
             }
         }
 
@@ -278,6 +279,16 @@ Try Later");
             MessageBox.Show("Herea!");
             updateUserLoadedInfo(r_UserAnalysis);
             MessageBox.Show(string.Format("{0}",m_LoadedUserAnalysis.UserIn.Name));
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            foreach (PictureTopBar item in r_PictureTopBars)
+            {
+                item.LabelText.Text = item.MyUserAnalysis.UserIn.Name;
+                flowLayoutPanel1.Controls.Add(item);
+            }
         }
     }
 }

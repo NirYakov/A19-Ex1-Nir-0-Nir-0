@@ -72,7 +72,7 @@
             this.labelEventInteraction = new System.Windows.Forms.Label();
             this.labelNameInteraction = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.groupBoxSortOpt = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -335,7 +335,7 @@
             // 
             this.groupBoxAdvenceOpt.Controls.Add(this.radioButtonHideSort);
             this.groupBoxAdvenceOpt.Controls.Add(this.radioButtonShowSort);
-            this.groupBoxAdvenceOpt.Location = new System.Drawing.Point(464, 192);
+            this.groupBoxAdvenceOpt.Location = new System.Drawing.Point(439, 192);
             this.groupBoxAdvenceOpt.Name = "groupBoxAdvenceOpt";
             this.groupBoxAdvenceOpt.Size = new System.Drawing.Size(243, 78);
             this.groupBoxAdvenceOpt.TabIndex = 39;
@@ -529,14 +529,15 @@
             this.label8.TabIndex = 19;
             this.label8.Text = "Name:";
             // 
-            // button2
+            // buttonRefresh
             // 
-            this.button2.Location = new System.Drawing.Point(317, 124);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 43);
-            this.button2.TabIndex = 42;
-            this.button2.Text = "Refresh";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Location = new System.Drawing.Point(317, 124);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(125, 43);
+            this.buttonRefresh.TabIndex = 42;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // groupBoxSortOpt
             // 
@@ -545,11 +546,11 @@
             this.groupBoxSortOpt.Controls.Add(this.checkBox1);
             this.groupBoxSortOpt.Controls.Add(this.checkBox2);
             this.groupBoxSortOpt.Controls.Add(this.checkBox3);
-            this.groupBoxSortOpt.Controls.Add(this.button2);
+            this.groupBoxSortOpt.Controls.Add(this.buttonRefresh);
             this.groupBoxSortOpt.Controls.Add(this.checkBox4);
             this.groupBoxSortOpt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxSortOpt.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxSortOpt.Location = new System.Drawing.Point(463, 0);
+            this.groupBoxSortOpt.Location = new System.Drawing.Point(438, 0);
             this.groupBoxSortOpt.Name = "groupBoxSortOpt";
             this.groupBoxSortOpt.Size = new System.Drawing.Size(453, 186);
             this.groupBoxSortOpt.TabIndex = 44;
@@ -598,7 +599,7 @@
             this.panelMainData.Controls.Add(this.groupBoxInteraction);
             this.panelMainData.Controls.Add(this.buttonBringFriends);
             this.panelMainData.Controls.Add(this.groupBox2);
-            this.panelMainData.Location = new System.Drawing.Point(463, 276);
+            this.panelMainData.Location = new System.Drawing.Point(438, 276);
             this.panelMainData.Name = "panelMainData";
             this.panelMainData.Size = new System.Drawing.Size(453, 986);
             this.panelMainData.TabIndex = 48;
@@ -696,7 +697,7 @@
         private System.Windows.Forms.Label labelEventInteraction;
         private System.Windows.Forms.Label labelNameInteraction;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.GroupBox groupBoxSortOpt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
