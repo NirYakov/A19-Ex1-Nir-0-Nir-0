@@ -13,7 +13,7 @@ namespace FB_Logic
 
         public int GoldenStars { get; private set; } = 0;
 
-        public int RegolarStars { get; private set; } = 0;
+        public int NormalStars { get; private set; } = 0;
 
         public void clacStars(bool i_PicutreStars, ICollection<int> i_Pra)
         {
@@ -26,7 +26,7 @@ namespace FB_Logic
 
             if (i_PicutreStars)
             {
-                result = (int)(result * k_PicStartsInterval);
+                result = calcolatePhotoInteraction(result);
             }
             else
             {
@@ -37,8 +37,23 @@ namespace FB_Logic
                 }
             }
 
-            RegolarStars = result % k_ExstraGoldStarBar;
+            NormalStars = result % k_ExstraGoldStarBar;
             GoldenStars = result / k_ExstraGoldStarBar;
+        }
+
+        private int calcolatePhotoInteraction(int i_Result)
+        {
+            return (int)(i_Result * k_PicStartsInterval);
+        }
+
+        private int calcolateOtherInteraction(int i_Result)
+        {
+            if (i_Result > k_ExstraGoldStarBar)
+            {
+                i_Result += 10;
+                i_Result += i_Result % 10;
+            }
+            return i_Result;
         }
 
         public int CompareTo(Stars i_Other)
@@ -49,14 +64,23 @@ namespace FB_Logic
         public int StarsToNumbers()
         {
             int result = 0;
-            result += RegolarStars;
+            result += NormalStars;
             result += GoldenStars * k_ExstraGoldStarBar;
             return result;
         }
 
         public override string ToString()
         {
-            return string.Format("{0} gold and {1} stars", GoldenStars, RegolarStars);
+            return string.Format("{0} gold and {1} stars", GoldenStars, NormalStars);
+        }
+
+        public static Stars NumberToStars(int i_Total)
+        {
+            int goldStar, normalStar;
+            normalStar = i_Total % k_ExstraGoldStarBar;
+            goldStar = i_Total / k_ExstraGoldStarBar;
+
+            return new Stars() { GoldenStars = goldStar, NormalStars = normalStar };
         }
     }
 }

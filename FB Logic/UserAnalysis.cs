@@ -13,10 +13,68 @@ namespace FB_Logic
 
         public Stars MyStars { get; }
 
+        public int? m_PostInteraction;
+        public int? m_EventInteraction;
+        public int? m_CheckinInteraction;
+        public int? m_TaggedInteraction;
+
         public UserAnalysis()
         {
             MyStars = new Stars();
         }
+
+        public int PostInteraction
+        {
+            get
+            {
+                if (!m_PostInteraction.HasValue)
+                {
+                    m_PostInteraction = NumberOfInterctionInPosts();
+                }
+
+                return m_PostInteraction.Value;
+            }
+        }
+
+        public int EventInteraction
+        {
+            get
+            {
+                if (!m_EventInteraction.HasValue)
+                {
+                    m_EventInteraction = NumberOfInteractionInEvents();
+                }
+
+                return m_EventInteraction.Value;
+            }
+        }
+
+        public int CheckinInteraction
+        {
+            get
+            {
+                if (!m_CheckinInteraction.HasValue)
+                {
+                    m_CheckinInteraction = NumberOfCheckinInteraction();
+                }
+
+                return m_CheckinInteraction.Value;
+            }
+        }
+
+        public int TaggedInteraction
+        {
+            get
+            {
+                if (!m_TaggedInteraction.HasValue)
+                {
+                    m_TaggedInteraction = NumberOfTagged();
+                }
+
+                return m_TaggedInteraction.Value;
+            }
+        }
+
 
         public int NumberOfInterctionInPosts()
         {
@@ -76,6 +134,11 @@ namespace FB_Logic
             return checkins.Count > 0 ? (sumOfInteraction / (checkins.Count * 2)) : 0;
         }
 
+        public int NumberOfTagged()
+        {
+            return UserIn.PhotosTaggedIn.Count + UserIn.PostsTaggedIn.Count;
+        }
+
 
         public void clacStarsFromAnalisis(eStarsParameters i_eParameter)
         {
@@ -99,7 +162,7 @@ namespace FB_Logic
             if ((i_eParameter & eStarsParameters.tagged) == eStarsParameters.tagged)
             {
                 //// TO CHECK IF I WANT SOMETHING ELSEEE!!@@
-                allParameters.Add(UserIn.PhotosTaggedIn.Count + UserIn.PostsTaggedIn.Count);
+                allParameters.Add(NumberOfTagged());
             }
 
             MyStars.clacStars(false, allParameters);
@@ -108,6 +171,13 @@ namespace FB_Logic
         public int CompareTo(UserAnalysis other)
         {
             return this.MyStars.CompareTo(other.MyStars);
+        }
+
+        public void ResetNullablesFields()
+        {
+            // m_PostInteraction , m_EventInteraction ,m_CheckinInteraction , m_TaggedInteraction
+            m_PostInteraction = m_EventInteraction = m_CheckinInteraction = m_TaggedInteraction = null;
+            
         }
 
         //public int InteractonByLikeAndComment<T>(ICollection<T> i_Aggregit)
@@ -122,11 +192,11 @@ namespace FB_Logic
         [Flags]
         public enum eStarsParameters
         {
+            none,
             checkin = 1,
             events = 2,
             posts = 4,
             tagged = 8
         }
-
     }
 }
