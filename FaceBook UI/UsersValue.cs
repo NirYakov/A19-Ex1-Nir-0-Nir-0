@@ -81,7 +81,7 @@ namespace A19_Ex1_Nir_0_Nir_0
 
             try
             {
-                 updateUserLoadedInfo(ptb.MyUserAnalysis);
+                updateUserLoadedInfo(ptb.MyUserAnalysis);
 
                 //labelTheFirendsCount.Text = ptb.MyUserAnalysis.UserIn.Friends.Count.ToString();
                 //labelTheName.Text = ptb.MyUserAnalysis.UserIn.Name;
@@ -106,7 +106,7 @@ namespace A19_Ex1_Nir_0_Nir_0
             labelTheTagged.Text = i_UserAnalysis.UserIn.PhotosTaggedIn.Count.ToString();
 
             labelBDay.Text = i_UserAnalysis.UserIn.Birthday;
-           
+            m_LoadedUserAnalysis = i_UserAnalysis;
             m_AlbumsManager.AlbumCollection = i_UserAnalysis.UserIn.Albums;
         }
 
@@ -120,18 +120,17 @@ namespace A19_Ex1_Nir_0_Nir_0
 
                     labelNameInteraction.Text = m_LoadedUserAnalysis.UserIn.Name;
 
-                    interactions.Add(m_LoadedUserAnalysis.NumberOfCheckinInteraction());
-                    labelEventInteraction.Text = interactions[0].ToString();
+                    interactions.Add(m_LoadedUserAnalysis.EventInteraction);
+                    labelEventInteraction.Text = m_LoadedUserAnalysis.EventInteraction.ToString();
 
-                    interactions.Add(m_LoadedUserAnalysis.NumberOfInteractionInEvents());
-                    labelPostInteraction.Text = interactions[1].ToString();
+                    interactions.Add(m_LoadedUserAnalysis.PostInteraction);
+                    labelPostInteraction.Text = m_LoadedUserAnalysis.PostInteraction.ToString();
 
-                    interactions.Add(m_LoadedUserAnalysis.NumberOfTagged());
-                    labelCheckinInterctions.Text = interactions[2].ToString();
+                    interactions.Add(m_LoadedUserAnalysis.CheckinInteraction);
+                    labelCheckinInterctions.Text = m_LoadedUserAnalysis.CheckinInteraction.ToString();
 
-                    interactions.Add(m_LoadedUserAnalysis.NumberOfInterctionInPosts());
-                    labelTaggedInterctions.Text = interactions[3].ToString();
-
+                    interactions.Add(m_LoadedUserAnalysis.TaggedInteraction);
+                    labelTaggedInterctions.Text = m_LoadedUserAnalysis.TaggedInteraction.ToString();
 
                     m_LoadedUserAnalysis.MyStars.clacStars(false, interactions);
                     labelGoldStarsInteraction.Text = m_LoadedUserAnalysis.MyStars.GoldenStars.ToString();

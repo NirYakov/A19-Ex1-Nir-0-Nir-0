@@ -208,9 +208,9 @@
             // listView1
             // 
             this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listView1.Location = new System.Drawing.Point(0, 302);
+            this.listView1.Location = new System.Drawing.Point(0, 605);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(409, 939);
+            this.listView1.Size = new System.Drawing.Size(409, 674);
             this.listView1.TabIndex = 28;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -311,7 +311,7 @@
             // 
             // buttonFetchAlbums
             // 
-            this.buttonFetchAlbums.Location = new System.Drawing.Point(44, 27);
+            this.buttonFetchAlbums.Location = new System.Drawing.Point(44, 46);
             this.buttonFetchAlbums.Margin = new System.Windows.Forms.Padding(6);
             this.buttonFetchAlbums.Name = "buttonFetchAlbums";
             this.buttonFetchAlbums.Size = new System.Drawing.Size(225, 44);
@@ -322,7 +322,7 @@
             // 
             // buttonGetPhotos
             // 
-            this.buttonGetPhotos.Location = new System.Drawing.Point(44, 83);
+            this.buttonGetPhotos.Location = new System.Drawing.Point(44, 102);
             this.buttonGetPhotos.Margin = new System.Windows.Forms.Padding(6);
             this.buttonGetPhotos.Name = "buttonGetPhotos";
             this.buttonGetPhotos.Size = new System.Drawing.Size(225, 86);
@@ -578,15 +578,15 @@
             // 
             // panelPhotos
             // 
-            this.panelPhotos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPhotos.Controls.Add(this.listView1);
             this.panelPhotos.Controls.Add(this.label11);
             this.panelPhotos.Controls.Add(this.buttonFetchAlbums);
             this.panelPhotos.Controls.Add(this.label1);
             this.panelPhotos.Controls.Add(this.buttonGetPhotos);
-            this.panelPhotos.Location = new System.Drawing.Point(915, 13);
+            this.panelPhotos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelPhotos.Location = new System.Drawing.Point(915, 0);
             this.panelPhotos.Name = "panelPhotos";
-            this.panelPhotos.Size = new System.Drawing.Size(409, 1241);
+            this.panelPhotos.Size = new System.Drawing.Size(409, 1279);
             this.panelPhotos.TabIndex = 47;
             // 
             // panelMainData
