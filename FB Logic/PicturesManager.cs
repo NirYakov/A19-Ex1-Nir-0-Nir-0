@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace FB_Logic
 {
-    public class PhotosManager
+    public class PicturesManager
     {
         private ICollection<Album> m_Albums;
         public ICollection<Album> MyAlbums { get { return m_Albums; } set { m_Albums = value; } }
-        private int AlbumIndex = -1;
+        // private int AlbumIndex = -1;
         private Album m_PickedAlbum;
 
         public ICollection<ItemInfo> BringAllAlbums()
@@ -26,9 +26,10 @@ namespace FB_Logic
             return albumsInfo;
         }
 
-        public void AlbumAt(int i_Index)
+        public Album AlbumAt(int i_Index)
         {
-            m_PickedAlbum = (m_Albums as List<Album>)[i_Index]; //.get(i_Index);
+            m_PickedAlbum = m_Albums.ElementAt(i_Index); //m_Albums[i_Index]; //.get(i_Index);
+            return m_PickedAlbum;
         }
 
         public Album PickedAlbum { get { return m_PickedAlbum; } }

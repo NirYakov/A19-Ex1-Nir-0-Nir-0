@@ -15,7 +15,7 @@ namespace FB_Logic
 
         public int NormalStars { get; private set; } = 0;
 
-        public void clacStars(bool i_PicutreStars, ICollection<int> i_Pra)
+        public void clacStars(bool i_PicutreStars, params int[] i_Pra)//ICollection<int> i_Pra)
         {
             int result = 0;
 
@@ -58,7 +58,7 @@ namespace FB_Logic
 
         public int CompareTo(Stars i_Other)
         {
-            return this.StarsToNumbers() - i_Other.StarsToNumbers();
+            return i_Other.StarsToNumbers() - this.StarsToNumbers();
         }
 
         public int StarsToNumbers()

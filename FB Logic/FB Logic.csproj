@@ -49,15 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Album Helpers\AlbumManager.cs" />
-    <Compile Include="Album Helpers\AlbumWrapper.cs" />
-    <Compile Include="Album Helpers\FetchHandler.cs" />
-    <Compile Include="Album Helpers\UserInfo.cs" />
-    <Compile Include="PhotosAnalysist.cs" />
+    <Compile Include="PicturesManager.cs" />
+    <Compile Include="PictureAnalysis.cs" />
     <Compile Include="Stars.cs" />
     <Compile Include="UserAnalysis.cs" />
     <Compile Include="UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Album Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

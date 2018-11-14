@@ -23,7 +23,7 @@ namespace FB_Logic
         {
             LoginResult m_LoginResult = FacebookService.Login(
               //  k_AppID,
-              k_GuyAppID ,
+             k_GuyAppID ,
             "public_profile",
             "user_birthday",
             "user_friends",

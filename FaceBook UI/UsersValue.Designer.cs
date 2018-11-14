@@ -77,10 +77,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panelPhotos = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMainData = new System.Windows.Forms.Panel();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.buttonLoadMe = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.imageList222 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBoxAdvenceOpt.SuspendLayout();
@@ -209,10 +210,12 @@
             // 
             // listView1
             // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listView1.Location = new System.Drawing.Point(0, 605);
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Location = new System.Drawing.Point(0, 316);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(409, 674);
+            this.listView1.Size = new System.Drawing.Size(409, 963);
             this.listView1.TabIndex = 28;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -329,7 +332,7 @@
             this.buttonGetPhotos.Name = "buttonGetPhotos";
             this.buttonGetPhotos.Size = new System.Drawing.Size(225, 86);
             this.buttonGetPhotos.TabIndex = 37;
-            this.buttonGetPhotos.Text = "Bing photos from chosen album";
+            this.buttonGetPhotos.Text = "Bring photos from chosen album";
             this.buttonGetPhotos.UseVisualStyleBackColor = true;
             this.buttonGetPhotos.Click += new System.EventHandler(this.buttonGetPhotos_Click);
             // 
@@ -580,6 +583,7 @@
             // 
             // panelPhotos
             // 
+            this.panelPhotos.Controls.Add(this.flowLayoutPanel2);
             this.panelPhotos.Controls.Add(this.listView1);
             this.panelPhotos.Controls.Add(this.label11);
             this.panelPhotos.Controls.Add(this.buttonFetchAlbums);
@@ -590,6 +594,20 @@
             this.panelPhotos.Name = "panelPhotos";
             this.panelPhotos.Size = new System.Drawing.Size(409, 1279);
             this.panelPhotos.TabIndex = 47;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.LightGray;
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 316);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(413, 963);
+            this.flowLayoutPanel2.TabIndex = 28;
+            this.flowLayoutPanel2.Visible = false;
             // 
             // panelMainData
             // 
@@ -606,6 +624,14 @@
             this.panelMainData.Name = "panelMainData";
             this.panelMainData.Size = new System.Drawing.Size(453, 986);
             this.panelMainData.TabIndex = 48;
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(24, 715);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(374, 242);
+            this.listView2.TabIndex = 42;
+            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // buttonLoadMe
             // 
@@ -628,14 +654,6 @@
             this.buttonHelp.TabIndex = 49;
             this.buttonHelp.Text = "?";
             this.buttonHelp.UseVisualStyleBackColor = false;
-            // 
-            // listView2
-            // 
-            this.listView2.Location = new System.Drawing.Point(24, 715);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(374, 242);
-            this.listView2.TabIndex = 42;
-            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // imageList222
             // 
@@ -728,5 +746,6 @@
         private System.Windows.Forms.Button buttonLoadMe;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ImageList imageList222;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

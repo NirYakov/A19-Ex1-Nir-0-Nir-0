@@ -16,10 +16,9 @@ namespace A19_Ex1_Nir_0_Nir_0
     public partial class UsersValue : Form
     {
         private readonly UserAnalysis r_UserAnalysis;
-        private AlbumManager m_AlbumsManager;
         private readonly List<PictureTopBar> r_PictureTopBars;
         private UserAnalysis m_LoadedUserAnalysis;
-        private PhotosManager m_PhotosAnalysist;
+        private PicturesManager m_PhotosManager;
         private int initSortGroupBoxHeight = 0;
 
         public UsersValue(User i_User)
@@ -30,8 +29,7 @@ namespace A19_Ex1_Nir_0_Nir_0
             r_UserAnalysis.UserIn = i_User;
 
 
-            m_AlbumsManager = new AlbumManager(r_UserAnalysis.UserIn.Albums);
-            m_PhotosAnalysist = new PhotosManager() { MyAlbums = r_UserAnalysis.UserIn.Albums };
+            m_PhotosManager = new PicturesManager() { MyAlbums = r_UserAnalysis.UserIn.Albums };
             r_PictureTopBars = new List<PictureTopBar>();
 
             initSortGroupBoxHeight = groupBoxSortOpt.Height;
@@ -45,18 +43,14 @@ namespace A19_Ex1_Nir_0_Nir_0
         {
             try
             {
+                const float ptbInterval = 0.85f;
                 PictureTopBar ptb;
-
                 flowLayoutPanel1.Controls.Clear();
+
                 foreach (User friend in r_UserAnalysis.UserIn.Friends)
                 {
-                    ptb = new PictureTopBar() { Size = new Size((int)(200 * 0.85), (int)(250 * 0.85)) };
-
-                    ptb.TopPanel.BackColor = Color.Blue;
-                    ptb.LabelText.ForeColor = Color.WhiteSmoke;
-                    ptb.Picture.LoadAsync(friend.PictureLargeURL);
+                    ptb = newPictureTopBar(ptbInterval, string.Format("{0}", friend.Name), friend.PictureLargeURL);
                     ptb.MyUserAnalysis.UserIn = friend;
-                    ptb.LabelText.Text = string.Format("{0}", friend.Name);
                     ptb.AddToClickEvent(PictureTopBar_Click);
                     r_PictureTopBars.Add(ptb);
                     flowLayoutPanel1.Controls.Add(ptb);
@@ -77,6 +71,16 @@ namespace A19_Ex1_Nir_0_Nir_0
             }
         }
 
+        private PictureTopBar newPictureTopBar(float i_SizeInterval, string i_LabelTitle, string i_PictureUrl)
+        {
+            PictureTopBar ptb = new PictureTopBar() { Size = new Size((int)(200 * i_SizeInterval), (int)(250 * i_SizeInterval)) };
+            ptb.TopPanel.BackColor = Color.Blue;
+            ptb.LabelText.ForeColor = Color.WhiteSmoke;
+            ptb.Picture.LoadAsync(i_PictureUrl);
+            ptb.LabelText.Text = i_LabelTitle;
+            return ptb;
+        }
+
         private void PictureTopBar_Click(object sender, EventArgs e)
         {
 
@@ -85,15 +89,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             try
             {
                 updateUserLoadedInfo(ptb.MyUserAnalysis);
-
-                //labelTheFirendsCount.Text = ptb.MyUserAnalysis.UserIn.Friends.Count.ToString();
-                //labelTheName.Text = ptb.MyUserAnalysis.UserIn.Name;
-                //labelTheTagged.Text = ptb.MyUserAnalysis.UserIn.PhotosTaggedIn.Count.ToString();
-
-                //labelBDay.Text = ptb.MyUserAnalysis.UserIn.Birthday;
-
-                //m_LoadedUserAnalysis.UserIn = ptb.MyUserAnalysis.UserIn;
-                //m_AlbumsManager.AlbumCollection = ptb.MyUserAnalysis.UserIn.Albums;
             }
             catch (Exception)
             {
@@ -110,8 +105,7 @@ namespace A19_Ex1_Nir_0_Nir_0
 
             labelBDay.Text = i_UserAnalysis.UserIn.Birthday;
             m_LoadedUserAnalysis = i_UserAnalysis;
-            m_AlbumsManager.AlbumCollection = i_UserAnalysis.UserIn.Albums;
-            m_PhotosAnalysist.MyAlbums = i_UserAnalysis.UserIn.Albums;
+            m_PhotosManager.MyAlbums = i_UserAnalysis.UserIn.Albums;
         }
 
         private void buttonInteraction_Click(object sender, EventArgs e)
@@ -120,26 +114,23 @@ namespace A19_Ex1_Nir_0_Nir_0
             {
                 if (m_LoadedUserAnalysis.UserIn != null)
                 {
-                    List<int> interactions = new List<int>();
+                    int postInteraction, eventInterction, taggedInteraction, checkinInteraction;
 
                     labelNameInteraction.Text = m_LoadedUserAnalysis.UserIn.Name;
 
-                    interactions.Add(m_LoadedUserAnalysis.EventInteraction);
-                    labelEventInteraction.Text = m_LoadedUserAnalysis.EventInteraction.ToString();
+                    postInteraction = m_LoadedUserAnalysis.PostInteraction;
+                    eventInterction = m_LoadedUserAnalysis.EventInteraction;
+                    checkinInteraction = m_LoadedUserAnalysis.CheckinInteraction;
+                    taggedInteraction = m_LoadedUserAnalysis.TaggedInteraction;
 
-                    interactions.Add(m_LoadedUserAnalysis.PostInteraction);
-                    labelPostInteraction.Text = m_LoadedUserAnalysis.PostInteraction.ToString();
+                    labelEventInteraction.Text = eventInterction.ToString();
+                    labelPostInteraction.Text = postInteraction.ToString();
+                    labelCheckinInterctions.Text = checkinInteraction.ToString();
+                    labelTaggedInterctions.Text = taggedInteraction.ToString();
 
-                    interactions.Add(m_LoadedUserAnalysis.CheckinInteraction);
-                    labelCheckinInterctions.Text = m_LoadedUserAnalysis.CheckinInteraction.ToString();
-
-                    interactions.Add(m_LoadedUserAnalysis.TaggedInteraction);
-                    labelTaggedInterctions.Text = m_LoadedUserAnalysis.TaggedInteraction.ToString();
-
-                    m_LoadedUserAnalysis.MyStars.clacStars(false, interactions);
+                    m_LoadedUserAnalysis.MyStars.clacStars(false, postInteraction, eventInterction, checkinInteraction);
                     labelGoldStarsInteraction.Text = m_LoadedUserAnalysis.MyStars.GoldenStars.ToString();
                     labelNormalStarsInteraction.Text = m_LoadedUserAnalysis.MyStars.NormalStars.ToString();
-                                       
                 }
             }
             catch (Exception)
@@ -163,11 +154,9 @@ Try Later");
         private void timerSort_Tick(object sender, EventArgs e)
         {
             int intervalMoving = 10;
-            // groupBoxSortOpt.Height
             if (radioButtonHideSort.Checked == true)
             {
                 movingMiddle(-intervalMoving);
-                // intervalMoving--;
                 if (groupBoxSortOpt.Height <= 0)
                 {
                     intervalMoving = 10;
@@ -178,7 +167,6 @@ Try Later");
             else
             {
                 movingMiddle(intervalMoving);
-                //intervalMoving++;
                 if (groupBoxSortOpt.Height >= initSortGroupBoxHeight) // panel1.Top == labelAdvence.Top)
                 {
                     intervalMoving = 10;
@@ -219,7 +207,8 @@ Try Later");
                 chosenParams |= UserAnalysis.eStarsParameters.tagged;
             }
 
-            if (chosenParams != UserAnalysis.eStarsParameters.none) {
+            if (chosenParams != UserAnalysis.eStarsParameters.none)
+            {
 
                 PictureTopBarStarSort ptbStarSort = new PictureTopBarStarSort();
 
@@ -252,24 +241,64 @@ Try Later");
             imageList1.Images.Clear();
 
             //FetchHandler.Fetch(m_AlbumsManager.GetAllAlbums(), imageList1, listView1);
-            Fetch();
+            try
+            {
+                bringAndLoadAlbums();
+            }
+            catch (Exception)
+            {
+                ServiceNotAvailableMessage();
+            }
         }
 
-        private void buttonGetPhotos_Click(object sender, EventArgs e)
+        private void buttonGetPhotos_Click(object sender, EventArgs e) //// flowLayoutPanel2
         {
-            int index = listView1.SelectedItems[0].Index;
-            if (index >= 0 && index < listView1.Items.Count)
+            try
             {
-                listView1.Clear();
-                imageList1.Images.Clear();
+                int index = listView1.SelectedItems[0].Index;
+                if (index >= 0 && index < listView1.Items.Count)
+                {
+                    listView1.Clear();
+                    imageList1.Images.Clear();
+                    listView1.Visible = false;
+                    flowLayoutPanel2.Visible = true;
 
+                    List<PictureAnalysis> pictureAnalyses = new List<PictureAnalysis>();
+                    PictureAnalysis pictureAnalysis;
 
+                    foreach (Photo item in m_PhotosManager.AlbumAt(index).Photos)
+                    {
+                        pictureAnalysis = new PictureAnalysis
+                        {
+                            PictureUrl = item.PictureNormalURL,
+                            PictureID = item.Id
+                        };
 
-                AlbumWrapper album = m_AlbumsManager.GetAlbum(index);
+                        pictureAnalysis.CalcStars(item.LikedBy.Count, item.Comments.Count);
+                        pictureAnalyses.Add(pictureAnalysis);
+                    }
 
-                
+                    pictureAnalyses.Sort(new PictureAnalysisSort());
+                    const float ptbInterval = 0.80f;
 
-                FetchHandler.Fetch(album.GetPhotos(), imageList1, listView1);
+                    foreach (PictureAnalysis item in pictureAnalyses)
+                    {
+                        flowLayoutPanel2.Controls.Add(
+                            newPictureTopBar(ptbInterval, item.ToString(), item.PictureUrl));
+                    }
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Plase pick anther item. you picked wrong index.");
+            }
+            catch (FieldAccessException)
+            {
+                MessageBox.Show("Plase pick anther item. you picked wrong index. HERERE?");
+            }
+            catch (Exception)
+            {
+                ServiceNotAvailableMessage();
             }
         }
 
@@ -284,9 +313,7 @@ Try Later");
         private void buttonLoadMe_Click(object sender, EventArgs e)
         {
             m_LoadedUserAnalysis = r_UserAnalysis;
-            MessageBox.Show("Herea!");
             updateUserLoadedInfo(r_UserAnalysis);
-            MessageBox.Show(string.Format("{0}",m_LoadedUserAnalysis.UserIn.Name));
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -299,11 +326,11 @@ Try Later");
             }
         }
 
-        public void Fetch()
+        public void bringAndLoadAlbums()
         {
             //LinkedList<UserInfo> i_Collection, ImageList i_ImagLst, ListView i_ViewLst;
-            PhotosManager photosManager = new PhotosManager() { MyAlbums = m_LoadedUserAnalysis.UserIn.Albums };   // m_LoadedUserAnalysis.UserIn
-            List<ItemInfo> allAlbums = (List<ItemInfo>) photosManager.BringAllAlbums();
+            PicturesManager photosManager = new PicturesManager() { MyAlbums = m_LoadedUserAnalysis.UserIn.Albums };   // m_LoadedUserAnalysis.UserIn
+            List<ItemInfo> allAlbums = (List<ItemInfo>)photosManager.BringAllAlbums();
 
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
             imageList1.ImageSize = new Size(80, 80);

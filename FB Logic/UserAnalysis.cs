@@ -165,7 +165,7 @@ namespace FB_Logic
                 allParameters.Add(NumberOfTagged());
             }
 
-            MyStars.clacStars(false, allParameters);
+            MyStars.clacStars(false, allParameters.ToArray());
         }
 
         public int CompareTo(UserAnalysis other)
