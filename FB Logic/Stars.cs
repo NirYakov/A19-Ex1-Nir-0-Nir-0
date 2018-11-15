@@ -8,12 +8,17 @@ namespace FB_Logic
 {
     public class Stars : IComparable<Stars>
     {
-        public const int k_ExstraGoldStarBar = 60; // This how to write public const? 
+        public static int GoldStarBar { get; }
         private const float k_PicStartsInterval = 1.5f; 
 
         public int GoldenStars { get; private set; } = 0;
 
         public int NormalStars { get; private set; } = 0;
+
+        static Stars()
+        {
+            GoldStarBar = 60; // bm
+        }
 
         public void clacStars(bool i_PicutreStars, params int[] i_Pra)//ICollection<int> i_Pra)
         {
@@ -30,15 +35,15 @@ namespace FB_Logic
             }
             else
             {
-                if (result > k_ExstraGoldStarBar)
+                if (result > GoldStarBar)
                 {
                     result += 10;
                     result += result % 10;
                 }
             }
 
-            NormalStars = result % k_ExstraGoldStarBar;
-            GoldenStars = result / k_ExstraGoldStarBar;
+            NormalStars = result % GoldStarBar;
+            GoldenStars = result / GoldStarBar;
         }
 
         private int calcolatePhotoInteraction(int i_Result)
@@ -48,7 +53,7 @@ namespace FB_Logic
 
         private int calcolateOtherInteraction(int i_Result)
         {
-            if (i_Result > k_ExstraGoldStarBar)
+            if (i_Result > GoldStarBar)
             {
                 i_Result += 10;
                 i_Result += i_Result % 10;
@@ -65,7 +70,7 @@ namespace FB_Logic
         {
             int result = 0;
             result += NormalStars;
-            result += GoldenStars * k_ExstraGoldStarBar;
+            result += GoldenStars * GoldStarBar;
             return result;
         }
 
@@ -77,8 +82,8 @@ namespace FB_Logic
         public static Stars NumberToStars(int i_Total)
         {
             int goldStar, normalStar;
-            normalStar = i_Total % k_ExstraGoldStarBar;
-            goldStar = i_Total / k_ExstraGoldStarBar;
+            normalStar = i_Total % GoldStarBar;
+            goldStar = i_Total / GoldStarBar;
 
             return new Stars() { GoldenStars = goldStar, NormalStars = normalStar };
         }

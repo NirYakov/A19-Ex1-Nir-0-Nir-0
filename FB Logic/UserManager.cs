@@ -10,7 +10,7 @@ namespace FB_Logic
 {
     public class UserManager
     {
-        private const string k_AppID = "317399492389792";
+        private const string k_AppID = "510658539406597"; // "317399492389792"; 
         private const string k_GuyAppID = "1450160541956417";
         // private LoginResult m_LoginResult;
         private User m_LoggedInUser;
