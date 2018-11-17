@@ -20,6 +20,26 @@ namespace A19_Ex1_Nir_0_Nir_0
         {
             InitializeComponent();
             r_UserManager = new UserManager();
+            initSettings();
+        }
+
+        private void initSettings()
+        {
+            panelData.BackColor = SettingUi.BackColorTheme();
+            Color foreColor = SettingUi.ForeColorTheme();
+            labelFriendsStatus.ForeColor = foreColor;
+            labelFriendsNum.ForeColor = foreColor;
+            labelPostsStatus.ForeColor = foreColor;
+            labelPostsNum.ForeColor = foreColor;
+            labelLikedPagesStatus.ForeColor = foreColor;
+            labelLikedPagesNum.ForeColor = foreColor;
+            labelCheckinsStatus.ForeColor = foreColor;
+            labelCheckinsNum.ForeColor = foreColor;
+            labelEventsStatus.ForeColor = foreColor;
+            labelEventsNum.ForeColor = foreColor;
+
+            btnLogin.BackColor = SettingUi.BackColorTheme();
+            btnLogin.ForeColor = foreColor;
         }
 
         private void InitializationAfterLogIn()
@@ -42,7 +62,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             panelActive.BackColor = Color.Chartreuse;
             btnLogin.Visible = false;
             pictureBoxLogOut.Visible = true;
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -282,7 +301,9 @@ Plase try later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         private void btnFeature1_Click(object sender, EventArgs e)
         {
-            (new UsersValue(r_UserManager.User)).ShowDialog(); 
+            this.Hide();
+            (new UsersValue(r_UserManager.User)).ShowDialog();
+            this.Show();
         }
     }
 }

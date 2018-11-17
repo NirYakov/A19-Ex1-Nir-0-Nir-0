@@ -45,10 +45,10 @@
             this.buttonInteraction = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonActiveSort = new System.Windows.Forms.Button();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxTagged = new System.Windows.Forms.CheckBox();
+            this.checkBoxPosts = new System.Windows.Forms.CheckBox();
+            this.checkBoxEvents = new System.Windows.Forms.CheckBox();
+            this.checkBoxCheckin = new System.Windows.Forms.CheckBox();
             this.timerSort = new System.Windows.Forms.Timer(this.components);
             this.imageListPickedUserAlbumsPictures = new System.Windows.Forms.ImageList(this.components);
             this.buttonFetchAlbums = new System.Windows.Forms.Button();
@@ -258,49 +258,49 @@
             this.buttonActiveSort.UseVisualStyleBackColor = true;
             this.buttonActiveSort.Click += new System.EventHandler(this.buttonActiveSort_Click);
             // 
-            // checkBox4
+            // checkBoxTagged
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.ForeColor = System.Drawing.Color.White;
-            this.checkBox4.Location = new System.Drawing.Point(185, 124);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(117, 29);
-            this.checkBox4.TabIndex = 44;
-            this.checkBox4.Text = "Tagged";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBoxTagged.AutoSize = true;
+            this.checkBoxTagged.ForeColor = System.Drawing.Color.White;
+            this.checkBoxTagged.Location = new System.Drawing.Point(185, 124);
+            this.checkBoxTagged.Name = "checkBoxTagged";
+            this.checkBoxTagged.Size = new System.Drawing.Size(117, 29);
+            this.checkBoxTagged.TabIndex = 44;
+            this.checkBoxTagged.Text = "Tagged";
+            this.checkBoxTagged.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBoxPosts
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(185, 68);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(98, 29);
-            this.checkBox3.TabIndex = 43;
-            this.checkBox3.Text = "Posts";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBoxPosts.AutoSize = true;
+            this.checkBoxPosts.ForeColor = System.Drawing.Color.White;
+            this.checkBoxPosts.Location = new System.Drawing.Point(185, 68);
+            this.checkBoxPosts.Name = "checkBoxPosts";
+            this.checkBoxPosts.Size = new System.Drawing.Size(98, 29);
+            this.checkBoxPosts.TabIndex = 43;
+            this.checkBoxPosts.Text = "Posts";
+            this.checkBoxPosts.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxEvents
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(24, 124);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(110, 29);
-            this.checkBox2.TabIndex = 42;
-            this.checkBox2.Text = "Events";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxEvents.AutoSize = true;
+            this.checkBoxEvents.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEvents.Location = new System.Drawing.Point(24, 124);
+            this.checkBoxEvents.Name = "checkBoxEvents";
+            this.checkBoxEvents.Size = new System.Drawing.Size(110, 29);
+            this.checkBoxEvents.TabIndex = 42;
+            this.checkBoxEvents.Text = "Events";
+            this.checkBoxEvents.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // checkBoxCheckin
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(24, 68);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(122, 29);
-            this.checkBox1.TabIndex = 41;
-            this.checkBox1.Text = "Checkin";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxCheckin.AutoSize = true;
+            this.checkBoxCheckin.ForeColor = System.Drawing.Color.White;
+            this.checkBoxCheckin.Location = new System.Drawing.Point(24, 68);
+            this.checkBoxCheckin.Name = "checkBoxCheckin";
+            this.checkBoxCheckin.Size = new System.Drawing.Size(122, 29);
+            this.checkBoxCheckin.TabIndex = 41;
+            this.checkBoxCheckin.Text = "Checkin";
+            this.checkBoxCheckin.UseVisualStyleBackColor = true;
             // 
             // timerSort
             // 
@@ -378,6 +378,7 @@
             this.buttonSaveToFile.TabIndex = 21;
             this.buttonSaveToFile.Text = "&Save To File\r\nInteraction";
             this.buttonSaveToFile.UseVisualStyleBackColor = true;
+            this.buttonSaveToFile.Click += new System.EventHandler(this.buttonSaveToFile_Click);
             // 
             // groupBoxInteraction
             // 
@@ -548,11 +549,11 @@
             // 
             this.groupBoxSortOpt.BackColor = System.Drawing.Color.CornflowerBlue;
             this.groupBoxSortOpt.Controls.Add(this.buttonActiveSort);
-            this.groupBoxSortOpt.Controls.Add(this.checkBox1);
-            this.groupBoxSortOpt.Controls.Add(this.checkBox2);
-            this.groupBoxSortOpt.Controls.Add(this.checkBox3);
+            this.groupBoxSortOpt.Controls.Add(this.checkBoxCheckin);
+            this.groupBoxSortOpt.Controls.Add(this.checkBoxEvents);
+            this.groupBoxSortOpt.Controls.Add(this.checkBoxPosts);
             this.groupBoxSortOpt.Controls.Add(this.buttonRefresh);
-            this.groupBoxSortOpt.Controls.Add(this.checkBox4);
+            this.groupBoxSortOpt.Controls.Add(this.checkBoxTagged);
             this.groupBoxSortOpt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxSortOpt.ForeColor = System.Drawing.Color.Black;
             this.groupBoxSortOpt.Location = new System.Drawing.Point(438, 0);
@@ -649,6 +650,7 @@
             this.MaximumSize = new System.Drawing.Size(1350, 1350);
             this.MinimumSize = new System.Drawing.Size(1350, 1350);
             this.Name = "UsersValue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UsersValue";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -683,10 +685,10 @@
         private System.Windows.Forms.Button buttonInteraction;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonActiveSort;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxTagged;
+        private System.Windows.Forms.CheckBox checkBoxPosts;
+        private System.Windows.Forms.CheckBox checkBoxEvents;
+        private System.Windows.Forms.CheckBox checkBoxCheckin;
         private System.Windows.Forms.Timer timerSort;
         private System.Windows.Forms.ImageList imageListPickedUserAlbumsPictures;
         private System.Windows.Forms.Button buttonFetchAlbums;

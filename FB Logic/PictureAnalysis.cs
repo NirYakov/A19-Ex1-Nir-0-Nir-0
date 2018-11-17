@@ -20,7 +20,8 @@ namespace FB_Logic
 
         public void CalcStars(int i_LikeCount, int i_CommentCount)
         {
-            MyStars.clacStars(true, i_LikeCount + i_CommentCount * k_CommentValue);
+            const bool pictureInteraction = true;
+            MyStars.CalulateStars(pictureInteraction, i_LikeCount + i_CommentCount * k_CommentValue);
         }
 
         public override string ToString()
@@ -30,7 +31,7 @@ namespace FB_Logic
 
         public int CompareTo(PictureAnalysis i_Other)
         {
-            return this.MyStars.CompareTo(i_Other.MyStars);// i_Other.MyStars.StarsToNumbers() - this.MyStars.StarsToNumbers() ;
+            return this.MyStars.CompareTo(i_Other.MyStars);
         }
     }
 

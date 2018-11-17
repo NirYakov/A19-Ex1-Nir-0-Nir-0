@@ -9,18 +9,16 @@ namespace FB_Logic
 {
     public class PicturesManager
     {
-        private ICollection<Album> m_Albums;
-        public ICollection<Album> MyAlbums { get { return m_Albums; } set { m_Albums = value; } }
-        // private int AlbumIndex = -1;
         private Album m_PickedAlbum;
+        public ICollection<Album> MyAlbums;
 
         public ICollection<ItemInfo> BringAllAlbums()
         {
             ICollection<ItemInfo> albumsInfo = new List<ItemInfo>();
-            
-            foreach (Album album in m_Albums)
+
+            foreach (Album album in MyAlbums)
             {
-                albumsInfo.Add(new ItemInfo(album.Id, album.Name, album.PictureAlbumURL ));
+                albumsInfo.Add(new ItemInfo(album.Id, album.Name, album.PictureAlbumURL));
             }
 
             return albumsInfo;
@@ -28,7 +26,7 @@ namespace FB_Logic
 
         public Album AlbumAt(int i_Index)
         {
-            m_PickedAlbum = m_Albums.ElementAt(i_Index); //m_Albums[i_Index]; //.get(i_Index);
+            m_PickedAlbum = MyAlbums.ElementAt(i_Index);
             return m_PickedAlbum;
         }
 
@@ -38,10 +36,8 @@ namespace FB_Logic
     public struct ItemInfo
     {
         public string ItemID { get; set; }
-
         public string ItemName { get; set; }
-
-        public string ItemUrl { get; set; }            
+        public string ItemUrl { get; set; }
 
         public ItemInfo(string i_ItemID, string i_ItemName, string i_ItemUrl)
         {

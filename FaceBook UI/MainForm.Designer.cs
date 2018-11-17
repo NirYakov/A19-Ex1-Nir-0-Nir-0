@@ -48,7 +48,7 @@
             this.btnFeature2 = new System.Windows.Forms.Button();
             this.pictureBoxLogOut = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelData = new System.Windows.Forms.Panel();
             this.panelActive = new System.Windows.Forms.Panel();
             this.labelEventsNum = new System.Windows.Forms.Label();
             this.labelEventsStatus = new System.Windows.Forms.Label();
@@ -63,10 +63,11 @@
             this.pictureBoxCoverPic = new System.Windows.Forms.PictureBox();
             this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
             this.pictureBoxPage = new System.Windows.Forms.PictureBox();
+            this.buttonSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).BeginInit();
@@ -78,7 +79,7 @@
             this.pictureBoxUser.Image = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
             this.pictureBoxUser.InitialImage = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
             this.pictureBoxUser.Location = new System.Drawing.Point(44, 140);
-            this.pictureBoxUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxUser.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxUser.Name = "pictureBoxUser";
             this.pictureBoxUser.Size = new System.Drawing.Size(250, 250);
             this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,7 +90,7 @@
             // 
             this.textBoxPost.Enabled = false;
             this.textBoxPost.Location = new System.Drawing.Point(492, 294);
-            this.textBoxPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPost.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPost.Multiline = true;
             this.textBoxPost.Name = "textBoxPost";
             this.textBoxPost.Size = new System.Drawing.Size(564, 41);
@@ -99,7 +100,7 @@
             // 
             this.btnPost.Enabled = false;
             this.btnPost.Location = new System.Drawing.Point(940, 348);
-            this.btnPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPost.Margin = new System.Windows.Forms.Padding(4);
             this.btnPost.Name = "btnPost";
             this.btnPost.Size = new System.Drawing.Size(116, 40);
             this.btnPost.TabIndex = 3;
@@ -127,7 +128,7 @@
             // 
             this.pictureBoxFriend.Enabled = false;
             this.pictureBoxFriend.Location = new System.Drawing.Point(356, 854);
-            this.pictureBoxFriend.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBoxFriend.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxFriend.Name = "pictureBoxFriend";
             this.pictureBoxFriend.Size = new System.Drawing.Size(200, 200);
             this.pictureBoxFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -140,7 +141,7 @@
             this.listBoxFriends.FormattingEnabled = true;
             this.listBoxFriends.ItemHeight = 25;
             this.listBoxFriends.Location = new System.Drawing.Point(28, 717);
-            this.listBoxFriends.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxFriends.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(304, 554);
             this.listBoxFriends.TabIndex = 83;
@@ -208,7 +209,7 @@
             this.listBoxPages.FormattingEnabled = true;
             this.listBoxPages.ItemHeight = 25;
             this.listBoxPages.Location = new System.Drawing.Point(676, 671);
-            this.listBoxPages.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxPages.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxPages.Name = "listBoxPages";
             this.listBoxPages.Size = new System.Drawing.Size(412, 154);
             this.listBoxPages.TabIndex = 85;
@@ -221,7 +222,7 @@
             this.listBoxCheckins.FormattingEnabled = true;
             this.listBoxCheckins.ItemHeight = 25;
             this.listBoxCheckins.Location = new System.Drawing.Point(676, 900);
-            this.listBoxCheckins.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxCheckins.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxCheckins.Name = "listBoxCheckins";
             this.listBoxCheckins.Size = new System.Drawing.Size(412, 154);
             this.listBoxCheckins.TabIndex = 86;
@@ -233,7 +234,7 @@
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 25;
             this.listBoxEvents.Location = new System.Drawing.Point(676, 1131);
-            this.listBoxEvents.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxEvents.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxEvents.Name = "listBoxEvents";
             this.listBoxEvents.Size = new System.Drawing.Size(412, 154);
             this.listBoxEvents.TabIndex = 87;
@@ -247,7 +248,7 @@
             this.listBoxPosts.FormattingEnabled = true;
             this.listBoxPosts.ItemHeight = 39;
             this.listBoxPosts.Location = new System.Drawing.Point(492, 398);
-            this.listBoxPosts.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.listBoxPosts.Margin = new System.Windows.Forms.Padding(6);
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(564, 160);
             this.listBoxPosts.TabIndex = 88;
@@ -269,7 +270,7 @@
             // 
             this.btnFeature1.Enabled = false;
             this.btnFeature1.Location = new System.Drawing.Point(44, 477);
-            this.btnFeature1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFeature1.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature1.Name = "btnFeature1";
             this.btnFeature1.Size = new System.Drawing.Size(120, 44);
             this.btnFeature1.TabIndex = 90;
@@ -281,7 +282,7 @@
             // 
             this.btnFeature2.Enabled = false;
             this.btnFeature2.Location = new System.Drawing.Point(40, 540);
-            this.btnFeature2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFeature2.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature2.Name = "btnFeature2";
             this.btnFeature2.Size = new System.Drawing.Size(120, 44);
             this.btnFeature2.TabIndex = 92;
@@ -294,7 +295,7 @@
             this.pictureBoxLogOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxLogOut.Image = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.logout4;
             this.pictureBoxLogOut.Location = new System.Drawing.Point(324, 302);
-            this.pictureBoxLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxLogOut.Name = "pictureBoxLogOut";
             this.pictureBoxLogOut.Size = new System.Drawing.Size(50, 50);
             this.pictureBoxLogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -308,7 +309,7 @@
             this.btnLogin.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLogin.Location = new System.Drawing.Point(324, 302);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(120, 50);
             this.btnLogin.TabIndex = 1;
@@ -316,35 +317,35 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // panel1
+            // panelData
             // 
-            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel1.Controls.Add(this.panelActive);
-            this.panel1.Controls.Add(this.labelEventsNum);
-            this.panel1.Controls.Add(this.labelEventsStatus);
-            this.panel1.Controls.Add(this.labelCheckinsNum);
-            this.panel1.Controls.Add(this.labelCheckinsStatus);
-            this.panel1.Controls.Add(this.labelLikedPagesNum);
-            this.panel1.Controls.Add(this.labelLikedPagesStatus);
-            this.panel1.Controls.Add(this.labelPostsNum);
-            this.panel1.Controls.Add(this.labelPostsStatus);
-            this.panel1.Controls.Add(this.labelFriendsNum);
-            this.panel1.Controls.Add(this.labelFriendsStatus);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 1381);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1116, 44);
-            this.panel1.TabIndex = 94;
+            this.panelData.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panelData.Controls.Add(this.panelActive);
+            this.panelData.Controls.Add(this.labelEventsNum);
+            this.panelData.Controls.Add(this.labelEventsStatus);
+            this.panelData.Controls.Add(this.labelCheckinsNum);
+            this.panelData.Controls.Add(this.labelCheckinsStatus);
+            this.panelData.Controls.Add(this.labelLikedPagesNum);
+            this.panelData.Controls.Add(this.labelLikedPagesStatus);
+            this.panelData.Controls.Add(this.labelPostsNum);
+            this.panelData.Controls.Add(this.labelPostsStatus);
+            this.panelData.Controls.Add(this.labelFriendsNum);
+            this.panelData.Controls.Add(this.labelFriendsStatus);
+            this.panelData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelData.Location = new System.Drawing.Point(0, 1381);
+            this.panelData.Margin = new System.Windows.Forms.Padding(4);
+            this.panelData.Name = "panelData";
+            this.panelData.Size = new System.Drawing.Size(1116, 44);
+            this.panelData.TabIndex = 94;
             // 
             // panelActive
             // 
-            this.panelActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panelActive.BackColor = System.Drawing.Color.Red;
-            this.panelActive.Location = new System.Drawing.Point(1070, 0);
-            this.panelActive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelActive.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelActive.Location = new System.Drawing.Point(1071, 0);
+            this.panelActive.Margin = new System.Windows.Forms.Padding(4);
             this.panelActive.Name = "panelActive";
-            this.panelActive.Size = new System.Drawing.Size(44, 44);
+            this.panelActive.Size = new System.Drawing.Size(45, 44);
             this.panelActive.TabIndex = 95;
             // 
             // labelEventsNum
@@ -467,7 +468,7 @@
             this.pictureBoxCoverPic.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.pictureBoxCoverPic.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxCoverPic.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxCoverPic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxCoverPic.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxCoverPic.Name = "pictureBoxCoverPic";
             this.pictureBoxCoverPic.Size = new System.Drawing.Size(1116, 242);
             this.pictureBoxCoverPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -477,7 +478,7 @@
             // pictureBoxEvent
             // 
             this.pictureBoxEvent.Location = new System.Drawing.Point(564, 1185);
-            this.pictureBoxEvent.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBoxEvent.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxEvent.Name = "pictureBoxEvent";
             this.pictureBoxEvent.Size = new System.Drawing.Size(100, 100);
             this.pictureBoxEvent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -487,21 +488,31 @@
             // pictureBoxPage
             // 
             this.pictureBoxPage.Location = new System.Drawing.Point(564, 671);
-            this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBoxPage.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxPage.Name = "pictureBoxPage";
             this.pictureBoxPage.Size = new System.Drawing.Size(100, 100);
             this.pictureBoxPage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPage.TabIndex = 98;
             this.pictureBoxPage.TabStop = false;
             // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Location = new System.Drawing.Point(268, 502);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(118, 56);
+            this.buttonSettings.TabIndex = 99;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 1425);
+            this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.pictureBoxPage);
             this.Controls.Add(this.pictureBoxEvent);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelData);
             this.Controls.Add(this.pictureBoxLogOut);
             this.Controls.Add(this.btnFeature2);
             this.Controls.Add(this.btnFeature1);
@@ -523,7 +534,7 @@
             this.Controls.Add(this.pictureBoxUser);
             this.Controls.Add(this.pictureBoxCoverPic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1106, 829);
             this.Name = "MainForm";
@@ -532,8 +543,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelData.ResumeLayout(false);
+            this.panelData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPage)).EndInit();
@@ -563,7 +574,7 @@
         private System.Windows.Forms.Button btnFeature2;
         private System.Windows.Forms.PictureBox pictureBoxLogOut;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelData;
         private System.Windows.Forms.Label labelEventsNum;
         private System.Windows.Forms.Label labelEventsStatus;
         private System.Windows.Forms.Label labelCheckinsNum;
@@ -578,5 +589,6 @@
         private System.Windows.Forms.PictureBox pictureBoxCoverPic;
         private System.Windows.Forms.PictureBox pictureBoxEvent;
         private System.Windows.Forms.PictureBox pictureBoxPage;
+        private System.Windows.Forms.Button buttonSettings;
     }
 } 

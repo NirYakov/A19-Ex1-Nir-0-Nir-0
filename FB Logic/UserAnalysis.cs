@@ -10,13 +10,12 @@ namespace FB_Logic
     public class UserAnalysis : IComparable<UserAnalysis>
     {
         public User UserIn { get; set; }
-
         public Stars MyStars { get; }
 
-        public int? m_PostInteraction;
-        public int? m_EventInteraction;
-        public int? m_CheckinInteraction;
-        public int? m_TaggedInteraction;
+        private int? m_PostInteraction;
+        private int? m_EventInteraction;
+        private int? m_CheckinInteraction;
+        private int? m_TaggedInteraction;
 
         public UserAnalysis()
         {
@@ -57,7 +56,6 @@ namespace FB_Logic
                 {
                     m_CheckinInteraction = NumberOfCheckinInteraction();
                 }
-
 
                 return m_CheckinInteraction.Value;
             }
@@ -143,6 +141,7 @@ namespace FB_Logic
         public void clacStarsFromAnalisis(eStarsParameters i_eParameter)
         {
             List<int> allParameters = new List<int>();
+            const bool pictureInteraction = true;
 
             if ((i_eParameter & eStarsParameters.checkin) == eStarsParameters.checkin)
             {
@@ -161,11 +160,10 @@ namespace FB_Logic
 
             if ((i_eParameter & eStarsParameters.tagged) == eStarsParameters.tagged)
             {
-                //// TO CHECK IF I WANT SOMETHING ELSEEE!!@@
                 allParameters.Add(NumberOfTagged());
             }
 
-            MyStars.clacStars(false, allParameters.ToArray());
+            MyStars.CalulateStars(!pictureInteraction, allParameters.ToArray());
         }
 
         public int CompareTo(UserAnalysis other)

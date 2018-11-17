@@ -20,6 +20,8 @@ namespace A19_Ex1_Nir_0_Nir_0
         private UserAnalysis m_LoadedUserAnalysis;
         private PicturesManager m_PhotosManager;
         private int initSortGroupBoxHeight = 0;
+        private readonly Color r_BackColor;
+        private readonly Color r_ForeColor;
         private string k_BringAlbumsString =
 @"Bring
 {0}
@@ -53,6 +55,8 @@ You can change the gold bar level in the settings.";
             InitializeComponent();
             r_UserAnalysis = new UserAnalysis() { UserIn = i_User };
             r_PictureTopBars = new List<PictureTopBar>();
+            r_BackColor = SettingUi.BackColorTheme();
+            r_ForeColor = SettingUi.ForeColorTheme();
             initializeAll();
         }
 
@@ -62,7 +66,19 @@ You can change the gold bar level in the settings.";
             initSortGroupBoxHeight = groupBoxSortOpt.Height;
             m_LoadedUserAnalysis = r_UserAnalysis;
             pictureBoxLaodedUser.LoadAsync(m_LoadedUserAnalysis.UserIn.PictureSqaureURL);
-           
+            initSettings();
+        }
+
+        private void initSettings()
+        {
+            groupBoxSortOpt.BackColor = r_BackColor;
+            checkBoxCheckin.ForeColor = r_ForeColor;
+            checkBoxEvents.ForeColor = r_ForeColor;
+            checkBoxPosts.ForeColor = r_ForeColor;
+            checkBoxTagged.ForeColor = r_ForeColor;
+
+            buttonHelp.BackColor = r_BackColor;
+            buttonHelp.ForeColor = r_ForeColor;
         }
 
         private void buttonBringFriends_Click(object sender, EventArgs e)
@@ -100,8 +116,8 @@ You can change the gold bar level in the settings.";
         private PictureTopBar newPictureTopBar(float i_SizeInterval, string i_LabelTitle, string i_PictureUrl)
         {
             PictureTopBar ptb = new PictureTopBar() { Size = new Size((int)(200 * i_SizeInterval), (int)(250 * i_SizeInterval)) };
-            ptb.TopPanel.BackColor = Color.Blue;
-            ptb.LabelText.ForeColor = Color.WhiteSmoke;
+            ptb.TopPanel.BackColor = r_BackColor;
+            ptb.LabelText.ForeColor = r_ForeColor;
             ptb.Picture.LoadAsync(i_PictureUrl);
             ptb.LabelText.Text = i_LabelTitle;
             return ptb;
@@ -144,6 +160,8 @@ You can change the gold bar level in the settings.";
             {
                 if (m_LoadedUserAnalysis.UserIn != null)
                 {
+                    const bool pictureInteraction = true;
+
                     int postInteraction, eventInterction, taggedInteraction, checkinInteraction;
 
                     labelNameInteraction.Text = m_LoadedUserAnalysis.UserIn.Name;
@@ -158,7 +176,14 @@ You can change the gold bar level in the settings.";
                     labelCheckinInterctions.Text = checkinInteraction.ToString();
                     labelTaggedInterctions.Text = taggedInteraction.ToString();
 
-                    m_LoadedUserAnalysis.MyStars.clacStars(false, postInteraction, eventInterction, checkinInteraction);
+                    m_LoadedUserAnalysis.MyStars.CalulateStars(
+                        !pictureInteraction,
+                        postInteraction,
+                        eventInterction,
+                        checkinInteraction,
+                        taggedInteraction
+                        );
+
                     labelGoldStarsInteraction.Text = m_LoadedUserAnalysis.MyStars.GoldenStars.ToString();
                     labelNormalStarsInteraction.Text = m_LoadedUserAnalysis.MyStars.NormalStars.ToString();
 
@@ -219,22 +244,22 @@ Try Later");
         private UserAnalysis.eStarsParameters sortParametersPicked()
         {
             UserAnalysis.eStarsParameters chosenParams = UserAnalysis.eStarsParameters.none;
-            if (checkBox1.Checked == true)
+            if (checkBoxCheckin.Checked == true)
             {
                 chosenParams |= UserAnalysis.eStarsParameters.checkin;
             }
 
-            if (checkBox1.Checked == true)
+            if (checkBoxCheckin.Checked == true)
             {
                 chosenParams |= UserAnalysis.eStarsParameters.posts;
             }
 
-            if (checkBox1.Checked == true)
+            if (checkBoxCheckin.Checked == true)
             {
                 chosenParams |= UserAnalysis.eStarsParameters.events;
             }
 
-            if (checkBox1.Checked == true)
+            if (checkBoxCheckin.Checked == true)
             {
                 chosenParams |= UserAnalysis.eStarsParameters.tagged;
             }
@@ -342,7 +367,7 @@ Try Later");
             }
         }
 
-       private void buttonLoadMe_Click(object sender, EventArgs e)
+        private void buttonLoadMe_Click(object sender, EventArgs e)
         {
             m_LoadedUserAnalysis = r_UserAnalysis;
             updateUserLoadedInfo(r_UserAnalysis);
@@ -391,17 +416,25 @@ Try Later");
             }
         }
 
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(string.Format(r_HelpMessage, Stars.GoldStarBar), "Helper for help");
+        }
+
+        private void buttonSaveToFile_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            (new SaveToFileInteractions()
+            { UserAnalysisLoaded = m_LoadedUserAnalysis }).ShowDialog();
+            this.Show();
+        }
+
         private class PictureTopBarStarSort : IComparer<PictureTopBar>
         {
             public int Compare(PictureTopBar i_X, PictureTopBar i_Y)
             {
                 return i_X.MyUserAnalysis.CompareTo(i_Y.MyUserAnalysis);
             }
-        }
-
-        private void buttonHelp_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(string.Format(r_HelpMessage, Stars.GoldStarBar), "Helper for help");
         }
     }
 }

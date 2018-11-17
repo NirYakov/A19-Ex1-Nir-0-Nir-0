@@ -9,7 +9,7 @@ namespace FB_Logic
     public class Stars : IComparable<Stars>
     {
         public static int GoldStarBar { get; }
-        private const float k_PicStartsInterval = 1.5f; 
+        private const float k_PicStartsInterval = 1.5f;
 
         public int GoldenStars { get; private set; } = 0;
 
@@ -17,10 +17,10 @@ namespace FB_Logic
 
         static Stars()
         {
-            GoldStarBar = 60; // bm
+            GoldStarBar = 60; // bm maybe by static setting or somethign like that.
         }
 
-        public void clacStars(bool i_PicutreStars, params int[] i_Pra)//ICollection<int> i_Pra)
+        public void CalulateStars(bool i_PicutreStars, params int[] i_Pra)
         {
             int result = 0;
 
@@ -35,11 +35,7 @@ namespace FB_Logic
             }
             else
             {
-                if (result > GoldStarBar)
-                {
-                    result += 10;
-                    result += result % 10;
-                }
+                result = calcolateOtherInteraction(result);
             }
 
             NormalStars = result % GoldStarBar;
@@ -77,15 +73,6 @@ namespace FB_Logic
         public override string ToString()
         {
             return string.Format("{0} gold and {1} stars", GoldenStars, NormalStars);
-        }
-
-        public static Stars NumberToStars(int i_Total)
-        {
-            int goldStar, normalStar;
-            normalStar = i_Total % GoldStarBar;
-            goldStar = i_Total / GoldStarBar;
-
-            return new Stars() { GoldenStars = goldStar, NormalStars = normalStar };
         }
     }
 }
