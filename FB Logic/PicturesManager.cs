@@ -9,8 +9,7 @@ namespace FB_Logic
 {
     public class PicturesManager
     {
-        private Album m_PickedAlbum;
-        public ICollection<Album> MyAlbums;
+        public ICollection<Album> MyAlbums { get; set; }
 
         public ICollection<ItemInfo> BringAllAlbums()
         {
@@ -26,11 +25,8 @@ namespace FB_Logic
 
         public Album AlbumAt(int i_Index)
         {
-            m_PickedAlbum = MyAlbums.ElementAt(i_Index);
-            return m_PickedAlbum;
+            return MyAlbums.ElementAt(i_Index);
         }
-
-        public Album PickedAlbum { get { return m_PickedAlbum; } }
     }
 
     public struct ItemInfo

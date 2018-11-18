@@ -18,7 +18,7 @@ namespace A19_Ex1_Nir_0_Nir_0
         private readonly UserAnalysis r_UserAnalysis;
         private readonly List<PictureTopBar> r_PictureTopBars;
         private UserAnalysis m_LoadedUserAnalysis;
-        private PicturesManager m_PhotosManager;
+        private PicturesManager m_PicutresManager;
         private int initSortGroupBoxHeight = 0;
         private readonly Color r_BackColor;
         private readonly Color r_ForeColor;
@@ -47,8 +47,9 @@ p.s
 Interction button calculate user loaded stars.
 Refresh button bring back the names to friends.
 Sort By -> it's analysis all your friends
-by given fields , and sort the best to top.
-You can change the gold bar level in the settings.";
+by given fields , and sort the best to top.";
+
+        // You can change the gold bar level in the settings.";
 
         public UsersValue(User i_User)
         {
@@ -62,7 +63,7 @@ You can change the gold bar level in the settings.";
 
         private void initializeAll()
         {
-            m_PhotosManager = new PicturesManager() { MyAlbums = r_UserAnalysis.UserIn.Albums };
+            m_PicutresManager = new PicturesManager() { MyAlbums = r_UserAnalysis.UserIn.Albums };
             initSortGroupBoxHeight = groupBoxSortOpt.Height;
             m_LoadedUserAnalysis = r_UserAnalysis;
             pictureBoxLaodedUser.LoadAsync(m_LoadedUserAnalysis.UserIn.PictureSqaureURL);
@@ -125,18 +126,18 @@ You can change the gold bar level in the settings.";
 
         private void PictureTopBar_Click(object sender, EventArgs e)
         {
-
             PictureTopBar ptb = sender as PictureTopBar;
-
-            try
+            if (ptb != null)
             {
-                updateUserLoadedInfo(ptb.MyUserAnalysis);
+                try
+                {
+                    updateUserLoadedInfo(ptb.MyUserAnalysis);
+                }
+                catch (Exception)
+                {
+                    ServiceNotAvailableMessage();
+                }
             }
-            catch (Exception)
-            {
-                ServiceNotAvailableMessage();
-            }
-
         }
 
         private void updateUserLoadedInfo(UserAnalysis i_UserAnalysis)
@@ -151,7 +152,7 @@ You can change the gold bar level in the settings.";
 
             labelBDay.Text = i_UserAnalysis.UserIn.Birthday;
             m_LoadedUserAnalysis = i_UserAnalysis;
-            m_PhotosManager.MyAlbums = i_UserAnalysis.UserIn.Albums;
+            m_PicutresManager.MyAlbums = i_UserAnalysis.UserIn.Albums;
         }
 
         private void buttonInteraction_Click(object sender, EventArgs e)
@@ -162,31 +163,19 @@ You can change the gold bar level in the settings.";
                 {
                     const bool pictureInteraction = true;
 
-                    int postInteraction, eventInterction, taggedInteraction, checkinInteraction;
-
                     labelNameInteraction.Text = m_LoadedUserAnalysis.UserIn.Name;
-
-                    postInteraction = m_LoadedUserAnalysis.PostInteraction;
-                    eventInterction = m_LoadedUserAnalysis.EventInteraction;
-                    checkinInteraction = m_LoadedUserAnalysis.CheckinInteraction;
-                    taggedInteraction = m_LoadedUserAnalysis.TaggedInteraction;
-
-                    labelEventInteraction.Text = eventInterction.ToString();
-                    labelPostInteraction.Text = postInteraction.ToString();
-                    labelCheckinInterctions.Text = checkinInteraction.ToString();
-                    labelTaggedInterctions.Text = taggedInteraction.ToString();
+                    CalculateAndFillDataUser();
 
                     m_LoadedUserAnalysis.MyStars.CalulateStars(
                         !pictureInteraction,
-                        postInteraction,
-                        eventInterction,
-                        checkinInteraction,
-                        taggedInteraction
+                        m_LoadedUserAnalysis.PostInteraction,
+                        m_LoadedUserAnalysis.EventInteraction,
+                        m_LoadedUserAnalysis.CheckinInteraction,
+                        m_LoadedUserAnalysis.TaggedInteraction
                         );
 
                     labelGoldStarsInteraction.Text = m_LoadedUserAnalysis.MyStars.GoldenStars.ToString();
                     labelNormalStarsInteraction.Text = m_LoadedUserAnalysis.MyStars.NormalStars.ToString();
-
                     buttonSaveToFile.Enabled = true;
                 }
             }
@@ -194,6 +183,14 @@ You can change the gold bar level in the settings.";
             {
                 ServiceNotAvailableMessage();
             }
+        }
+
+        private void CalculateAndFillDataUser()
+        {
+            labelEventInteraction.Text = m_LoadedUserAnalysis.PostInteraction.ToString();
+            labelPostInteraction.Text = m_LoadedUserAnalysis.ToString();
+            labelCheckinInterctions.Text = m_LoadedUserAnalysis.ToString();
+            labelTaggedInterctions.Text = m_LoadedUserAnalysis.ToString();
         }
 
         private void ServiceNotAvailableMessage()
@@ -210,13 +207,12 @@ Try Later");
 
         private void timerSort_Tick(object sender, EventArgs e)
         {
-            int intervalMoving = 10;
+            const int intervalMoving = 10;
             if (radioButtonHideSort.Checked == true)
             {
                 movingMiddle(-intervalMoving);
                 if (groupBoxSortOpt.Height <= 0)
                 {
-                    intervalMoving = 10;
                     timerSort.Stop();
                     this.Refresh();
                 }
@@ -226,7 +222,6 @@ Try Later");
                 movingMiddle(intervalMoving);
                 if (groupBoxSortOpt.Height >= initSortGroupBoxHeight)
                 {
-                    intervalMoving = 10;
                     timerSort.Stop();
                     this.Refresh();
                 }
@@ -270,11 +265,9 @@ Try Later");
         private void buttonActiveSort_Click(object sender, EventArgs e)
         {
             UserAnalysis.eStarsParameters chosenParams = sortParametersPicked();
-
             if (chosenParams != UserAnalysis.eStarsParameters.none)
             {
                 PictureTopBarStarSort ptbStarSort = new PictureTopBarStarSort();
-
                 try
                 {
                     foreach (PictureTopBar item in r_PictureTopBars)
@@ -300,10 +293,8 @@ Try Later");
 
         private void buttonFetchAlbums_Click(object sender, EventArgs e)
         {
-            listViewPickedUserAlbums.Clear();
-            imageListPickedUserAlbumsPictures.Images.Clear();
-            listViewPickedUserAlbums.Visible = true;
-            flowLayoutPanelPickedUserPictures.Visible = false;
+            const bool showAlbumList = true, showPictureList = true;
+            clearImagesAlbumAndPicturesContainers(showAlbumList, !showPictureList);
 
             try
             {
@@ -316,6 +307,15 @@ Try Later");
             }
         }
 
+        private void clearImagesAlbumAndPicturesContainers(bool i_ShowAlbumList, bool i_ShowPictureList)
+        {
+            listViewPickedUserAlbums.Clear();
+            imageListPickedUserAlbumsPictures.Images.Clear();
+            listViewPickedUserAlbums.Visible = i_ShowAlbumList;
+            flowLayoutPanelPickedUserPictures.Visible = i_ShowPictureList;
+            flowLayoutPanelPickedUserPictures.Controls.Clear();
+        }
+
         private void buttonGetPhotos_Click(object sender, EventArgs e)
         {
             try
@@ -323,29 +323,12 @@ Try Later");
                 int index = listViewPickedUserAlbums.SelectedItems[0].Index;
                 if (index >= 0 && index < listViewPickedUserAlbums.Items.Count)
                 {
-                    listViewPickedUserAlbums.Clear();
-                    imageListPickedUserAlbumsPictures.Images.Clear();
-                    listViewPickedUserAlbums.Visible = false;
-                    flowLayoutPanelPickedUserPictures.Visible = true;
+                    const bool showAlbumList = true, showPictureList = true;
+                    clearImagesAlbumAndPicturesContainers(!showAlbumList, showPictureList);
+                    ICollection<PictureAnalysis> pictureAnalyses =
+                        FillPictureAnalysisListAndSortByStars(index);
 
-                    List<PictureAnalysis> pictureAnalyses = new List<PictureAnalysis>();
-                    PictureAnalysis pictureAnalysis;
-
-                    foreach (Photo item in m_PhotosManager.AlbumAt(index).Photos)
-                    {
-                        pictureAnalysis = new PictureAnalysis
-                        {
-                            PictureUrl = item.PictureNormalURL,
-                            PictureID = item.Id
-                        };
-
-                        pictureAnalysis.CalcStars(item.LikedBy.Count, item.Comments.Count);
-                        pictureAnalyses.Add(pictureAnalysis);
-                    }
-
-                    pictureAnalyses.Sort(new PictureAnalysisSort());
                     const float ptbInterval = 0.80f;
-
                     foreach (PictureAnalysis item in pictureAnalyses)
                     {
                         flowLayoutPanelPickedUserPictures.Controls.Add(
@@ -367,6 +350,26 @@ Try Later");
             }
         }
 
+        private ICollection<PictureAnalysis> FillPictureAnalysisListAndSortByStars(int i_Index)
+        {
+            List<PictureAnalysis> pictureAnalyses = new List<PictureAnalysis>();
+            PictureAnalysis pictureAnalysis;
+            foreach (Photo item in m_PicutresManager.AlbumAt(i_Index).Photos)
+            {
+                pictureAnalysis = new PictureAnalysis
+                {
+                    PictureUrl = item.PictureNormalURL,
+                    PictureID = item.Id
+                };
+
+                pictureAnalysis.CalcStars(item.LikedBy.Count, item.Comments.Count);
+                pictureAnalyses.Add(pictureAnalysis);
+            }
+
+            pictureAnalyses.Sort(new PictureAnalysisSort());
+            return pictureAnalyses;
+        }
+
         private void buttonLoadMe_Click(object sender, EventArgs e)
         {
             m_LoadedUserAnalysis = r_UserAnalysis;
@@ -385,8 +388,7 @@ Try Later");
 
         public void bringAndLoadAlbums()
         {
-            PicturesManager photosManager = new PicturesManager() { MyAlbums = m_LoadedUserAnalysis.UserIn.Albums };
-            List<ItemInfo> allAlbums = (List<ItemInfo>)photosManager.BringAllAlbums();
+            List<ItemInfo> allAlbums = (List<ItemInfo>)m_PicutresManager.BringAllAlbums();
 
             imageListPickedUserAlbumsPictures.ColorDepth = ColorDepth.Depth32Bit;
             imageListPickedUserAlbumsPictures.ImageSize = new Size(80, 80);
@@ -398,8 +400,8 @@ Try Later");
             foreach (ItemInfo itemInfo in allAlbums)
             {
                 var request = WebRequest.Create(itemInfo.ItemUrl);
-                using (var response = request.GetResponse())
-                using (var stream = response.GetResponseStream())
+                using (WebResponse response = request.GetResponse())
+                using (System.IO.Stream stream = response.GetResponseStream())
                 {
                     imageListPickedUserAlbumsPictures.Images.Add(Bitmap.FromStream(stream));
                 }
