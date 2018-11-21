@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="PicturesManager.cs" />
     <Compile Include="PictureAnalysis.cs" />
+    <Compile Include="PostAnalysis.cs" />
     <Compile Include="Stars.cs" />
     <Compile Include="UserAnalysis.cs" />
     <Compile Include="UserManager.cs" />

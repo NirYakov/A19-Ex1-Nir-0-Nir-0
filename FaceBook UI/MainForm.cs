@@ -295,8 +295,9 @@ Plase try later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         private void btnFeature2_Click(object sender, EventArgs e)
         {
-            FormKeyWords formKeyWord = new FormKeyWords();
-            formKeyWord.ShowDialog();
+            FeatureTwo featureTwo = new FeatureTwo(r_UserManager.User);
+            featureTwo.ShowDialog();
+
         }
 
         private void btnFeature1_Click(object sender, EventArgs e)
