@@ -16,13 +16,13 @@ namespace FB_Logic
         public PostAnalysis(User i_User)
         {
             TheUser = i_User;
-            PostsListStr = FetchPostsToStringList();
+            PostsListStr = fetchPostsToStringList();
         }
 
         public List<String> getPostsByWord(string i_WordToSearch)
         {
             List<String> postResult = new List<String>();
-            FetchPostsToStringList();
+            fetchPostsToStringList();
             List<Post> dummyList = new List<Post>();
             int i = 0;
             foreach (string post in PostsListStr)
@@ -38,7 +38,7 @@ namespace FB_Logic
             return postResult;
         }
 
-        private List<String> FetchPostsToStringList()
+        private List<String> fetchPostsToStringList()
         {
             List<String> postResult = new List<String>();
             PostsList = new List<Post>();
@@ -88,6 +88,5 @@ namespace FB_Logic
             }
             return (from wp in occurrences.OrderByDescending(kvp => kvp.Value) select wp).Take(k).ToDictionary(kw => kw.Key, kw => kw.Value);
         }
-
     }
 }

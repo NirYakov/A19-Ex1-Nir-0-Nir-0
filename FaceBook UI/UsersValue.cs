@@ -103,7 +103,7 @@ by given fields , and sort the best to top.";
                 {
                     ptb = newPictureTopBar(ptbInterval, string.Format("{0}", friend.Name), friend.PictureLargeURL);
                     ptb.MyUserAnalysis.UserIn = friend;
-                    ptb.AddToClickEvent(PictureTopBar_Click);
+                    ptb.AddToClickEvent(pictureTopBar_Click);
                     r_PictureTopBars.Add(ptb);
                     flowLayoutPanelFriends.Controls.Add(ptb);
                     friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
@@ -119,7 +119,7 @@ by given fields , and sort the best to top.";
             }
             catch (Exception)
             {
-                ServiceNotAvailableMessage();
+                serviceNotAvailableMessage();
             }
         }
 
@@ -133,7 +133,7 @@ by given fields , and sort the best to top.";
             return ptb;
         }
 
-        private void PictureTopBar_Click(object sender, EventArgs e)
+        private void pictureTopBar_Click(object sender, EventArgs e)
         {
             PictureTopBar ptb = sender as PictureTopBar;
             if (ptb != null)
@@ -144,7 +144,7 @@ by given fields , and sort the best to top.";
                 }
                 catch (Exception)
                 {
-                    ServiceNotAvailableMessage();
+                    serviceNotAvailableMessage();
                 }
             }
         }
@@ -175,7 +175,7 @@ by given fields , and sort the best to top.";
                     const bool pictureInteraction = true;
 
                     labelNameInteraction.Text = m_LoadedUserAnalysis.UserIn.Name;
-                    CalculateAndFillDataUser();
+                    calculateAndFillDataUser();
 
                     m_LoadedUserAnalysis.MyStars.CalulateStars(
                         !pictureInteraction,
@@ -192,11 +192,11 @@ by given fields , and sort the best to top.";
             }
             catch (Exception)
             {
-                ServiceNotAvailableMessage();
+                serviceNotAvailableMessage();
             }
         }
 
-        private void CalculateAndFillDataUser()
+        private void calculateAndFillDataUser()
         {
             labelEventInteraction.Text = m_LoadedUserAnalysis.PostInteraction.ToString();
             labelPostInteraction.Text = m_LoadedUserAnalysis.ToString();
@@ -204,7 +204,7 @@ by given fields , and sort the best to top.";
             labelTaggedInterctions.Text = m_LoadedUserAnalysis.ToString();
         }
 
-        private void ServiceNotAvailableMessage()
+        private void serviceNotAvailableMessage()
         {
             MessageBox.Show(
  @"The Service not available now
@@ -296,7 +296,7 @@ Try Later");
                 }
                 catch (Exception)
                 {
-                    ServiceNotAvailableMessage();
+                    serviceNotAvailableMessage();
                 }
             }
         }
@@ -313,7 +313,7 @@ Try Later");
             }
             catch (Exception)
             {
-                ServiceNotAvailableMessage();
+                serviceNotAvailableMessage();
             }
         }
 
@@ -362,7 +362,7 @@ Try Later");
                     const bool showAlbumList = true, showPictureList = true;
                     clearImagesAlbumAndPicturesContainers(!showAlbumList, showPictureList);
                     ICollection<PictureAnalysis> pictureAnalyses =
-                        FillPictureAnalysisListAndSortByStars(index);
+                        fillPictureAnalysisListAndSortByStars(index);
 
                     const float ptbInterval = 0.80f;
                     foreach (PictureAnalysis item in pictureAnalyses)
@@ -382,11 +382,11 @@ Try Later");
             }
             catch (Exception)
             {
-                ServiceNotAvailableMessage();
+                serviceNotAvailableMessage();
             }
         }
 
-        private ICollection<PictureAnalysis> FillPictureAnalysisListAndSortByStars(int i_Index)
+        private ICollection<PictureAnalysis> fillPictureAnalysisListAndSortByStars(int i_Index)
         {
             List<PictureAnalysis> pictureAnalyses = new List<PictureAnalysis>();
             PictureAnalysis pictureAnalysis;
