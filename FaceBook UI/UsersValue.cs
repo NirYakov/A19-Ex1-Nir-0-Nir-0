@@ -49,7 +49,7 @@ Refresh button bring back the names to friends.
 Sort By -> it's analysis all your friends
 by given fields , and sort the best to top.";
 
-        // You can change the gold bar level in the settings.";
+        // You can change the gold bar level in the settings."; // bm
 
         public UsersValue(User i_User)
         {
@@ -68,6 +68,7 @@ by given fields , and sort the best to top.";
             m_LoadedUserAnalysis = r_UserAnalysis;
             pictureBoxLaodedUser.LoadAsync(m_LoadedUserAnalysis.UserIn.PictureSqaureURL);
             initSettings();
+            initListView();
         }
 
         private void initSettings()
@@ -80,6 +81,14 @@ by given fields , and sort the best to top.";
 
             buttonHelp.BackColor = r_BackColor;
             buttonHelp.ForeColor = r_ForeColor;
+        }
+
+        private void initListView()
+        {
+            imageListPickedUserAlbumsPictures.ColorDepth = ColorDepth.Depth32Bit;
+            imageListPickedUserAlbumsPictures.ImageSize = new Size(80, 80);
+            listViewPickedUserAlbums.View = View.LargeIcon;
+            listViewPickedUserAlbums.LargeImageList = imageListPickedUserAlbumsPictures;
         }
 
         private void buttonBringFriends_Click(object sender, EventArgs e)
@@ -153,6 +162,8 @@ by given fields , and sort the best to top.";
             labelBDay.Text = i_UserAnalysis.UserIn.Birthday;
             m_LoadedUserAnalysis = i_UserAnalysis;
             m_PicutresManager.MyAlbums = i_UserAnalysis.UserIn.Albums;
+            const bool showAlbumList = true , showPictureList = true;
+            clearImagesAlbumAndPicturesContainers(showAlbumList, !showPictureList);
         }
 
         private void buttonInteraction_Click(object sender, EventArgs e)
@@ -267,7 +278,6 @@ Try Later");
             UserAnalysis.eStarsParameters chosenParams = sortParametersPicked();
             if (chosenParams != UserAnalysis.eStarsParameters.none)
             {
-                PictureTopBarStarSort ptbStarSort = new PictureTopBarStarSort();
                 try
                 {
                     foreach (PictureTopBar item in r_PictureTopBars)
@@ -275,7 +285,7 @@ Try Later");
                         item.MyUserAnalysis.clacStarsFromAnalisis(chosenParams);
                     }
 
-                    r_PictureTopBars.Sort(ptbStarSort);
+                    r_PictureTopBars.Sort(new PictureTopBarStarSort());
                     flowLayoutPanelFriends.Controls.Clear();
                     foreach (PictureTopBar item in r_PictureTopBars)
                     {
@@ -304,6 +314,32 @@ Try Later");
             catch (Exception)
             {
                 ServiceNotAvailableMessage();
+            }
+        }
+
+        private void bringAndLoadAlbums()
+        {
+            List<ItemInfo> allAlbums = (List<ItemInfo>)m_PicutresManager.BringAllAlbums();
+            int index = 0;
+            foreach (ItemInfo itemInfo in allAlbums)
+            {
+                var request = WebRequest.Create(itemInfo.ItemUrl);
+                using (WebResponse response = request.GetResponse())
+                using (System.IO.Stream stream = response.GetResponseStream())
+                {
+                    imageListPickedUserAlbumsPictures.Images.Add(Bitmap.FromStream(stream));
+                }
+
+                listViewPickedUserAlbums.Items.Add(new ListViewItem()
+                {
+                    ImageIndex = index++,
+                    Text = itemInfo.ItemName
+                });
+            }
+
+            if (index == 0)
+            {
+                MessageBox.Show("Nothing!");
             }
         }
 
@@ -383,38 +419,6 @@ Try Later");
             {
                 item.LabelText.Text = item.MyUserAnalysis.UserIn.Name;
                 flowLayoutPanelFriends.Controls.Add(item);
-            }
-        }
-
-        public void bringAndLoadAlbums()
-        {
-            List<ItemInfo> allAlbums = (List<ItemInfo>)m_PicutresManager.BringAllAlbums();
-
-            imageListPickedUserAlbumsPictures.ColorDepth = ColorDepth.Depth32Bit;
-            imageListPickedUserAlbumsPictures.ImageSize = new Size(80, 80);
-            listViewPickedUserAlbums.View = View.LargeIcon;
-            listViewPickedUserAlbums.LargeImageList = imageListPickedUserAlbumsPictures;
-
-            int index = 0;
-            ListViewItem item;
-            foreach (ItemInfo itemInfo in allAlbums)
-            {
-                var request = WebRequest.Create(itemInfo.ItemUrl);
-                using (WebResponse response = request.GetResponse())
-                using (System.IO.Stream stream = response.GetResponseStream())
-                {
-                    imageListPickedUserAlbumsPictures.Images.Add(Bitmap.FromStream(stream));
-                }
-
-                item = new ListViewItem();
-                item.ImageIndex = index++;
-                item.Text = itemInfo.ItemName;
-                listViewPickedUserAlbums.Items.Add(item);
-            }
-
-            if (index == 0)
-            {
-                MessageBox.Show("Nothing!");
             }
         }
 
