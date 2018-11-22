@@ -58,12 +58,6 @@
     <Compile Include="FeatureTwo.Designer.cs">
       <DependentUpon>FeatureTwo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKeyWords.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormKeyWords.Designer.cs">
-      <DependentUpon>FormKeyWords.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPostSummary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,9 +93,6 @@
     </Compile>
     <EmbeddedResource Include="FeatureTwo.resx">
       <DependentUpon>FeatureTwo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormKeyWords.resx">
-      <DependentUpon>FormKeyWords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPostSummary.resx">
       <DependentUpon>FormPostSummary.cs</DependentUpon>

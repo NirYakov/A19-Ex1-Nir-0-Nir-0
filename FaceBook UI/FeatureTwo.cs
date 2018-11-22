@@ -19,12 +19,20 @@ namespace A19_Ex1_Nir_0_Nir_0
         public FeatureTwo(User i_User)
         {
             InitializeComponent();
+            InitializeCustomeComponent();
             r_postAnalysis = new PostAnalysis(i_User);
             listboxTotalPosts.DataSource = r_postAnalysis.PostsListStr;
             labelSumTot.Text = listboxTotalPosts.Items.Count.ToString();
+            PopulateListBoxTopWords();
+        }
+
+        private void InitializeCustomeComponent()
+        {
             listboxTotalPosts.MouseDoubleClick += new MouseEventHandler(listboxTotalPosts_MouseDoubleClick);
             listBoxTopWords.SelectedIndexChanged += ListBoxTopWords_SelectedIndexChanged;
-            PopulateListBoxTopWords();
+            radioButtonAlphabetical.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            radioButtonLikes.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            radioButtonRecent.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
         }
 
         private void ListBoxTopWords_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,9 +64,27 @@ namespace A19_Ex1_Nir_0_Nir_0
 
         private void textBoxWordToAnalysis_TextChanged(object sender, EventArgs e)
         {
+            radioButtonRecent.Checked = true;
             string wordToAnalysis = textBoxWordToAnalysis.Text;
-            listboxTotalPosts.DataSource = r_postAnalysis.getPostsByWord(wordToAnalysis);
+            listboxTotalPosts.DataSource = r_postAnalysis.GetPostsByWord(wordToAnalysis);
             labelSumTot.Text = listboxTotalPosts.Items.Count.ToString();
         }
+
+        private void radioButtons_CheckedChanged(object sender, EventArgs e)
+         {
+            if (radioButtonAlphabetical.Checked)
+            {
+                listboxTotalPosts.DataSource = r_postAnalysis.SortAlphabetical();
+            }
+            else if(radioButtonLikes.Checked)
+            {
+                listboxTotalPosts.DataSource = r_postAnalysis.SortByNumOfLikes();
+            }
+            else
+            {
+                listboxTotalPosts.DataSource = r_postAnalysis.SortRecent();
+            }
+        }
+
     }
 }

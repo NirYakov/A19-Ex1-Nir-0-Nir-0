@@ -35,6 +35,11 @@
             this.textBoxWordToAnalysis = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButtonRecent = new System.Windows.Forms.RadioButton();
+            this.radioButtonAlphabetical = new System.Windows.Forms.RadioButton();
+            this.radioButtonLikes = new System.Windows.Forms.RadioButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listboxTotalPosts
@@ -58,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 372);
+            this.label1.Location = new System.Drawing.Point(10, 457);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 20);
             this.label1.TabIndex = 3;
@@ -69,7 +74,7 @@
             this.labelSumTot.AutoSize = true;
             this.labelSumTot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSumTot.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelSumTot.Location = new System.Drawing.Point(110, 372);
+            this.labelSumTot.Location = new System.Drawing.Point(108, 457);
             this.labelSumTot.Name = "labelSumTot";
             this.labelSumTot.Size = new System.Drawing.Size(21, 20);
             this.labelSumTot.TabIndex = 4;
@@ -97,17 +102,64 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 396);
+            this.label3.Location = new System.Drawing.Point(14, 481);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(307, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "(Double click on status to show full details)";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButtonLikes);
+            this.groupBox1.Controls.Add(this.radioButtonAlphabetical);
+            this.groupBox1.Controls.Add(this.radioButtonRecent);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox1.Location = new System.Drawing.Point(18, 375);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(410, 73);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sort By";
+            // 
+            // radioButtonRecent
+            // 
+            this.radioButtonRecent.AutoSize = true;
+            this.radioButtonRecent.Location = new System.Drawing.Point(7, 26);
+            this.radioButtonRecent.Name = "radioButtonRecent";
+            this.radioButtonRecent.Size = new System.Drawing.Size(86, 24);
+            this.radioButtonRecent.TabIndex = 0;
+            this.radioButtonRecent.TabStop = true;
+            this.radioButtonRecent.Text = "Recent";
+            this.radioButtonRecent.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonAlphabetical
+            // 
+            this.radioButtonAlphabetical.AutoSize = true;
+            this.radioButtonAlphabetical.Location = new System.Drawing.Point(94, 26);
+            this.radioButtonAlphabetical.Name = "radioButtonAlphabetical";
+            this.radioButtonAlphabetical.Size = new System.Drawing.Size(119, 24);
+            this.radioButtonAlphabetical.TabIndex = 1;
+            this.radioButtonAlphabetical.TabStop = true;
+            this.radioButtonAlphabetical.Text = "alphabetical";
+            this.radioButtonAlphabetical.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonLikes
+            // 
+            this.radioButtonLikes.AutoSize = true;
+            this.radioButtonLikes.Location = new System.Drawing.Point(219, 25);
+            this.radioButtonLikes.Name = "radioButtonLikes";
+            this.radioButtonLikes.Size = new System.Drawing.Size(71, 24);
+            this.radioButtonLikes.TabIndex = 2;
+            this.radioButtonLikes.TabStop = true;
+            this.radioButtonLikes.Text = "Likes";
+            this.radioButtonLikes.UseVisualStyleBackColor = true;
+            // 
             // FeatureTwo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 483);
+            this.ClientSize = new System.Drawing.Size(495, 647);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxWordToAnalysis);
@@ -119,6 +171,8 @@
             this.MinimizeBox = false;
             this.Name = "FeatureTwo";
             this.Text = "FeatureTwo";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +187,9 @@
         private System.Windows.Forms.ListBox listBoxTopWords;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButtonLikes;
+        private System.Windows.Forms.RadioButton radioButtonAlphabetical;
+        private System.Windows.Forms.RadioButton radioButtonRecent;
     }
 }

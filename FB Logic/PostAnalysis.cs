@@ -19,8 +19,51 @@ namespace FB_Logic
             PostsListStr = fetchPostsToStringList();
         }
 
-        public List<String> getPostsByWord(string i_WordToSearch)
+        public List<String> SortRecent()
         {
+            List<String> postResult = fetchPostsToStringList();
+            return postResult;
+        }
+        public List<String> SortAlphabetical()
+        {
+            List<String> postResult = PostsListStr;
+            List<Post> dummyList = PostsList;
+            postResult.Sort();
+            dummyList.Sort(new sortPostAlphabetical());
+            PostsList = dummyList;
+            return postResult;
+        }
+
+        private class sortPostAlphabetical : IComparer<Post>
+        {
+            public int Compare(Post x, Post y)
+            {
+                return x.Message.CompareTo(y.Message);
+            }
+        }
+
+        public List<String> SortByNumOfLikes()
+        {
+            List<String> postResult = PostsListStr;
+            List<Post> dummyList = PostsList;
+            postResult.Sort();
+            dummyList.Sort(new sortPostByLikes());
+            PostsList = dummyList;
+            return postResult;
+        }
+
+        private class sortPostByLikes : IComparer<Post>
+        {
+            public int Compare(Post x, Post y)
+            {
+                return x.LikedBy.Count.CompareTo(y.LikedBy.Count);
+            }
+        }
+
+
+        public List<String> GetPostsByWord(string i_WordToSearch)
+        {
+
             List<String> postResult = new List<String>();
             fetchPostsToStringList();
             List<Post> dummyList = new List<Post>();
@@ -42,6 +85,8 @@ namespace FB_Logic
         {
             List<String> postResult = new List<String>();
             PostsList = new List<Post>();
+            PostsList.Clear();
+            
             foreach (Post post in TheUser.Posts)
             {
                 if (post.Message != null)
@@ -49,25 +94,7 @@ namespace FB_Logic
                     postResult.Add(post.Message);
                     PostsList.Add(post);
                 }
-                else if (post.Caption != null)
-                {
-                    //postResult.Add(post.Caption);
-                } 
-                else
-                {
-                    //  postResult.Add(string.Format("[{0}]", post.Type));
-                }
             }
-
-            //int postsNum = r_User.Posts.Count;
-            //if (postsNum == 0)
-            //{
-            //    MessageBox.Show("No Posts to retrieve :(");
-            //}
-            //else
-            //{
-            //    labelPostsNum.Text = postsNum.ToString();
-            //}
             return postResult;
         }
 
