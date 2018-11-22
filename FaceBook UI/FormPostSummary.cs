@@ -30,7 +30,7 @@ namespace A19_Ex1_Nir_0_Nir_0
             //    str += "," + comment.ToString();
             //}
 
-            label1.Text ="Likes" + ThePost.LikedBy.Count.ToString();
+            lableFriendsWhoLikes.Text ="Likes" + ThePost.LikedBy.Count.ToString();
 
 
         }

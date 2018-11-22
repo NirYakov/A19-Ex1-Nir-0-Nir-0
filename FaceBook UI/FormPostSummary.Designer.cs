@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.LinkLabel linkToPostOnFB;
             this.lableStatus = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lableFriendsWhoLikes = new System.Windows.Forms.Label();
             linkToPostOnFB = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -58,21 +58,21 @@
             this.lableStatus.Text = "--";
             this.lableStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label1
+            // lableFriendsWhoLikes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lableFriendsWhoLikes.AutoSize = true;
+            this.lableFriendsWhoLikes.Location = new System.Drawing.Point(111, 106);
+            this.lableFriendsWhoLikes.Name = "lableFriendsWhoLikes";
+            this.lableFriendsWhoLikes.Size = new System.Drawing.Size(19, 20);
+            this.lableFriendsWhoLikes.TabIndex = 2;
+            this.lableFriendsWhoLikes.Text = "--";
             // 
             // FormPostSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1244, 379);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lableFriendsWhoLikes);
             this.Controls.Add(linkToPostOnFB);
             this.Controls.Add(this.lableStatus);
             this.Name = "FormPostSummary";
@@ -86,6 +86,6 @@
         #endregion
 
         private System.Windows.Forms.Label lableStatus;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lableFriendsWhoLikes;
     }
 }
