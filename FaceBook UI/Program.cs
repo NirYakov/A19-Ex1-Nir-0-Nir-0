@@ -8,7 +8,7 @@ namespace A19_Ex1_Nir_0_Nir_0
 {
     static class Program
     {
-        // nir`s test !
+        // nir`s test 2
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

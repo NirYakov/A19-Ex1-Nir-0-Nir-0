@@ -15,6 +15,7 @@ namespace A19_Ex1_Nir_0_Nir_0
     public partial class FormPostSummary : Form
     {
         public Post ThePost { get; set; }
+
         public FormPostSummary(Post i_ThePost)
         {
             ThePost = i_ThePost;
@@ -25,14 +26,12 @@ namespace A19_Ex1_Nir_0_Nir_0
         {
             lableStatus.Text = ThePost.Message;
            
-            //foreach (Comment comment in ThePost.Comments)
-            //{
-            //    str += "," + comment.ToString();
-            //}
+            foreach (Comment comment in ThePost.Comments)
+            {
+                listBoxComments.Items.Add(comment.ToString());
+            }
 
-            lableFriendsWhoLikes.Text ="Likes" + ThePost.LikedBy.Count.ToString();
-
-
+            labelNumOfLikes.Text = ThePost.LikedBy.Count.ToString();
         }
 
         private void linkToPostOnFB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -44,7 +43,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-
             }
         }
     }

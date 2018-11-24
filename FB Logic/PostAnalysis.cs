@@ -1,5 +1,5 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
+using FacebookWrapper.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -10,7 +10,9 @@ namespace FB_Logic
    public class PostAnalysis
     {
         public User TheUser { get; set; }
+
         public List<string> PostsListStr { get; set; }
+
         public List<Post> PostsList { get; set; }
 
         public PostAnalysis(User i_User)
@@ -19,14 +21,15 @@ namespace FB_Logic
             PostsListStr = fetchPostsToStringList();
         }
 
-        public List<String> SortRecent()
+        public List<string> SortRecent()
         {
-            List<String> postResult = fetchPostsToStringList();
+            List<string> postResult = fetchPostsToStringList();
             return postResult;
         }
-        public List<String> SortAlphabetical()
+
+        public List<string> SortAlphabetical()
         {
-            List<String> postResult = PostsListStr;
+            List<string> postResult = PostsListStr;
             List<Post> dummyList = PostsList;
             postResult.Sort();
             dummyList.Sort(new sortPostAlphabetical());
@@ -42,9 +45,9 @@ namespace FB_Logic
             }
         }
 
-        public List<String> SortByNumOfLikes()
+        public List<string> SortByNumOfLikes()
         {
-            List<String> postResult = PostsListStr;
+            List<string> postResult = PostsListStr;
             List<Post> dummyList = PostsList;
             postResult.Sort();
             dummyList.Sort(new sortPostByLikes());
@@ -60,11 +63,9 @@ namespace FB_Logic
             }
         }
 
-
-        public List<String> GetPostsByWord(string i_WordToSearch)
+        public List<string> GetPostsByWord(string i_WordToSearch)
         {
-
-            List<String> postResult = new List<String>();
+            List<string> postResult = new List<string>();
             fetchPostsToStringList();
             List<Post> dummyList = new List<Post>();
             int i = 0;
@@ -75,15 +76,17 @@ namespace FB_Logic
                     postResult.Add(post);
                     dummyList.Add(PostsList[i]);
                 }
+
                 i++;
             }
+
             PostsList = dummyList;
             return postResult;
         }
 
-        private List<String> fetchPostsToStringList()
+        private List<string> fetchPostsToStringList()
         {
-            List<String> postResult = new List<String>();
+            List<string> postResult = new List<string>();
             PostsList = new List<Post>();
             PostsList.Clear();
             
@@ -95,6 +98,7 @@ namespace FB_Logic
                     PostsList.Add(post);
                 }
             }
+
             return postResult;
         }
 
@@ -109,10 +113,15 @@ namespace FB_Logic
             {
                 string lowerWord = word.ToLowerInvariant();
                 if (!occurrences.ContainsKey(lowerWord))
+                {
                     occurrences.Add(lowerWord, 1);
+                }
                 else
+                {
                     occurrences[lowerWord]++;
+                }
             }
+
             return (from wp in occurrences.OrderByDescending(kvp => kvp.Value) select wp).Take(k).ToDictionary(kw => kw.Key, kw => kw.Value);
         }
     }

@@ -52,11 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeatureTwo.cs">
+    <Compile Include="TopWordsFeature.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FeatureTwo.Designer.cs">
-      <DependentUpon>FeatureTwo.cs</DependentUpon>
+    <Compile Include="TopWordsFeature.Designer.cs">
+      <DependentUpon>TopWordsFeature.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPostSummary.cs">
       <SubType>Form</SubType>
@@ -91,8 +91,8 @@
     <Compile Include="UsersValue.Designer.cs">
       <DependentUpon>UsersValue.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FeatureTwo.resx">
-      <DependentUpon>FeatureTwo.cs</DependentUpon>
+    <EmbeddedResource Include="TopWordsFeature.resx">
+      <DependentUpon>TopWordsFeature.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPostSummary.resx">
       <DependentUpon>FormPostSummary.cs</DependentUpon>
