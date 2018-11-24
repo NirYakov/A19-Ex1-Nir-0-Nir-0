@@ -30,10 +30,7 @@
         {
             System.Windows.Forms.LinkLabel linkToPostOnFB;
             this.lableStatus = new System.Windows.Forms.Label();
-            this.listBoxComments = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelNumOfLikes = new System.Windows.Forms.Label();
+            this.lableFriendsWhoLikes = new System.Windows.Forms.Label();
             linkToPostOnFB = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -41,10 +38,9 @@
             // 
             linkToPostOnFB.AutoSize = true;
             linkToPostOnFB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            linkToPostOnFB.Location = new System.Drawing.Point(8, 224);
-            linkToPostOnFB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            linkToPostOnFB.Location = new System.Drawing.Point(12, 345);
             linkToPostOnFB.Name = "linkToPostOnFB";
-            linkToPostOnFB.Size = new System.Drawing.Size(178, 17);
+            linkToPostOnFB.Size = new System.Drawing.Size(251, 25);
             linkToPostOnFB.TabIndex = 1;
             linkToPostOnFB.TabStop = true;
             linkToPostOnFB.Text = "Show in Facebook Website";
@@ -53,65 +49,32 @@
             // lableStatus
             // 
             this.lableStatus.AutoSize = true;
-            this.lableStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.lableStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lableStatus.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lableStatus.Location = new System.Drawing.Point(0, 0);
-            this.lableStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lableStatus.Location = new System.Drawing.Point(33, 9);
             this.lableStatus.Name = "lableStatus";
-            this.lableStatus.Size = new System.Drawing.Size(26, 25);
+            this.lableStatus.Size = new System.Drawing.Size(35, 36);
             this.lableStatus.TabIndex = 0;
             this.lableStatus.Text = "--";
+            this.lableStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // listBoxComments
+            // lableFriendsWhoLikes
             // 
-            this.listBoxComments.FormattingEnabled = true;
-            this.listBoxComments.Location = new System.Drawing.Point(234, 126);
-            this.listBoxComments.Name = "listBoxComments";
-            this.listBoxComments.Size = new System.Drawing.Size(461, 95);
-            this.listBoxComments.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 107);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Likes : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(234, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Comments:";
-            // 
-            // labelNumOfLikes
-            // 
-            this.labelNumOfLikes.AutoSize = true;
-            this.labelNumOfLikes.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumOfLikes.Location = new System.Drawing.Point(65, 120);
-            this.labelNumOfLikes.Name = "labelNumOfLikes";
-            this.labelNumOfLikes.Size = new System.Drawing.Size(72, 76);
-            this.labelNumOfLikes.TabIndex = 6;
-            this.labelNumOfLikes.Text = "=";
+            this.lableFriendsWhoLikes.AutoSize = true;
+            this.lableFriendsWhoLikes.Location = new System.Drawing.Point(111, 106);
+            this.lableFriendsWhoLikes.Name = "lableFriendsWhoLikes";
+            this.lableFriendsWhoLikes.Size = new System.Drawing.Size(19, 20);
+            this.lableFriendsWhoLikes.TabIndex = 2;
+            this.lableFriendsWhoLikes.Text = "--";
             // 
             // FormPostSummary
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 246);
-            this.Controls.Add(this.labelNumOfLikes);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBoxComments);
+            this.ClientSize = new System.Drawing.Size(1244, 379);
+            this.Controls.Add(this.lableFriendsWhoLikes);
             this.Controls.Add(linkToPostOnFB);
             this.Controls.Add(this.lableStatus);
-            this.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormPostSummary";
             this.Text = "FormPostSummary";
             this.Load += new System.EventHandler(this.FormPostSummary_Load);
@@ -123,9 +86,6 @@
         #endregion
 
         private System.Windows.Forms.Label lableStatus;
-        private System.Windows.Forms.ListBox listBoxComments;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelNumOfLikes;
+        private System.Windows.Forms.Label lableFriendsWhoLikes;
     }
 }
