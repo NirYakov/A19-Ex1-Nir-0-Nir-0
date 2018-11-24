@@ -15,7 +15,7 @@ namespace A19_Ex1_Nir_0_Nir_0
 
     public partial class PictureTopBar : UserControl
     {
-        private readonly List<PicAndPanelClick> NotifiersByClick ;
+        private readonly List<PicAndPanelClick> NotifiersByClick;
 
         public UserAnalysis MyUserAnalysis { get; }
 
@@ -38,7 +38,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             TopPanel.Click += Notify;
             NotifiersByClick.Add(ok);
         }
-
 
         public void Notify(object sender, EventArgs e) // it's the right format ? maybe code stlye check // Mb
         {

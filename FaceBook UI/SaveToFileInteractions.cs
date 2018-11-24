@@ -17,7 +17,11 @@ namespace A19_Ex1_Nir_0_Nir_0
         public UserAnalysis m_UserAnalysisLoaded;
         public UserAnalysis UserAnalysisLoaded
         {
-            get { return m_UserAnalysisLoaded; }
+            get
+            {
+                return m_UserAnalysisLoaded;
+            }
+
             set
             {
                 m_UserAnalysisLoaded = value;
@@ -72,7 +76,7 @@ Normal Stars: {2}
 
             if (checkBoxPosts.Checked)
             {
-                stringBuilder.AppendFormat("Posts: {0}",UserAnalysisLoaded.PostInteraction).AppendLine();
+                stringBuilder.AppendFormat("Posts: {0}", UserAnalysisLoaded.PostInteraction).AppendLine();
             }
 
             if (checkBoxEvents.Checked)

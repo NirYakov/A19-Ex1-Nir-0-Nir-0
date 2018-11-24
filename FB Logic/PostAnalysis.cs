@@ -18,12 +18,12 @@ namespace FB_Logic
         public PostAnalysis(User i_User)
         {
             TheUser = i_User;
-            PostsListStr = fetchPostsToStringList();
+            PostsListStr = this.fetchPostsToStringList();
         }
 
         public List<string> SortRecent()
         {
-            List<string> postResult = fetchPostsToStringList();
+            List<string> postResult = this.fetchPostsToStringList();
             return postResult;
         }
 
@@ -66,7 +66,7 @@ namespace FB_Logic
         public List<string> GetPostsByWord(string i_WordToSearch)
         {
             List<string> postResult = new List<string>();
-            fetchPostsToStringList();
+            this.fetchPostsToStringList();
             List<Post> dummyList = new List<Post>();
             int i = 0;
             foreach (string post in PostsListStr)
@@ -105,7 +105,7 @@ namespace FB_Logic
         public Dictionary<string, int> GetTopKWords()
         {
             int k = 15;
-            string input = String.Join(" ", PostsListStr.ToArray());
+            string input = string.Join(" ", PostsListStr.ToArray());
             string[] words = Regex.Split(input, @"\W");
             var occurrences = new Dictionary<string, int>();
 

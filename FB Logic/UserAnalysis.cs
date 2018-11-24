@@ -137,28 +137,27 @@ namespace FB_Logic
             return UserIn.PhotosTaggedIn.Count + UserIn.PostsTaggedIn.Count;
         }
 
-
         public void clacStarsFromAnalisis(eStarsParameters i_eParameter)
         {
             List<int> allParameters = new List<int>();
             const bool pictureInteraction = true;
 
-            if ((i_eParameter & eStarsParameters.checkin) == eStarsParameters.checkin)
+            if ((i_eParameter & eStarsParameters.Checkin) == eStarsParameters.Checkin)
             {
                 allParameters.Add(NumberOfCheckinInteraction());
             }
 
-            if ((i_eParameter & eStarsParameters.events) == eStarsParameters.events)
+            if ((i_eParameter & eStarsParameters.Events) == eStarsParameters.Events)
             {
                 allParameters.Add(NumberOfInteractionInEvents());
             }
 
-            if ((i_eParameter & eStarsParameters.posts) == eStarsParameters.posts)
+            if ((i_eParameter & eStarsParameters.Posts) == eStarsParameters.Posts)
             {
                 allParameters.Add(NumberOfInterctionInPosts());
             }
 
-            if ((i_eParameter & eStarsParameters.tagged) == eStarsParameters.tagged)
+            if ((i_eParameter & eStarsParameters.Tagged) == eStarsParameters.Tagged)
             {
                 allParameters.Add(NumberOfTagged());
             }
@@ -174,11 +173,11 @@ namespace FB_Logic
         [Flags]
         public enum eStarsParameters
         {
-            none,
-            checkin = 1,
-            events = 2,
-            posts = 4,
-            tagged = 8
+            None,
+            Checkin = 1,
+            Events = 2,
+            Posts = 4,
+            Tagged = 8
         }
     }
 }

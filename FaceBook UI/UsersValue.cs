@@ -17,11 +17,11 @@ namespace A19_Ex1_Nir_0_Nir_0
     {
         private readonly UserAnalysis r_UserAnalysis;
         private readonly List<PictureTopBar> r_PictureTopBars;
+        private readonly Color r_BackColor;
+        private readonly Color r_ForeColor;
         private UserAnalysis m_LoadedUserAnalysis;
         private PicturesManager m_PicutresManager;
         private int initSortGroupBoxHeight = 0;
-        private readonly Color r_BackColor;
-        private readonly Color r_ForeColor;
         private string k_BringAlbumsString =
 @"Bring
 {0}
@@ -48,8 +48,6 @@ Interction button calculate user loaded stars.
 Refresh button bring back the names to friends.
 Sort By -> it's analysis all your friends
 by given fields , and sort the best to top.";
-
-        // You can change the gold bar level in the settings."; // bm
 
         public UsersValue(User i_User)
         {
@@ -162,7 +160,7 @@ by given fields , and sort the best to top.";
             labelBDay.Text = i_UserAnalysis.UserIn.Birthday;
             m_LoadedUserAnalysis = i_UserAnalysis;
             m_PicutresManager.MyAlbums = i_UserAnalysis.UserIn.Albums;
-            const bool showAlbumList = true , showPictureList = true;
+            const bool showAlbumList = true, showPictureList = true;
             clearImagesAlbumAndPicturesContainers(showAlbumList, !showPictureList);
         }
 
@@ -249,25 +247,25 @@ Try Later");
 
         private UserAnalysis.eStarsParameters sortParametersPicked()
         {
-            UserAnalysis.eStarsParameters chosenParams = UserAnalysis.eStarsParameters.none;
+            UserAnalysis.eStarsParameters chosenParams = UserAnalysis.eStarsParameters.None;
             if (checkBoxCheckin.Checked == true)
             {
-                chosenParams |= UserAnalysis.eStarsParameters.checkin;
+                chosenParams |= UserAnalysis.eStarsParameters.Checkin;
             }
 
             if (checkBoxCheckin.Checked == true)
             {
-                chosenParams |= UserAnalysis.eStarsParameters.posts;
+                chosenParams |= UserAnalysis.eStarsParameters.Posts;
             }
 
             if (checkBoxCheckin.Checked == true)
             {
-                chosenParams |= UserAnalysis.eStarsParameters.events;
+                chosenParams |= UserAnalysis.eStarsParameters.Events;
             }
 
             if (checkBoxCheckin.Checked == true)
             {
-                chosenParams |= UserAnalysis.eStarsParameters.tagged;
+                chosenParams |= UserAnalysis.eStarsParameters.Tagged;
             }
 
             return chosenParams;
@@ -276,7 +274,7 @@ Try Later");
         private void buttonActiveSort_Click(object sender, EventArgs e)
         {
             UserAnalysis.eStarsParameters chosenParams = sortParametersPicked();
-            if (chosenParams != UserAnalysis.eStarsParameters.none)
+            if (chosenParams != UserAnalysis.eStarsParameters.None)
             {
                 try
                 {
@@ -402,7 +400,7 @@ Try Later");
                 pictureAnalyses.Add(pictureAnalysis);
             }
 
-            pictureAnalyses.Sort(new PictureAnalysisSort());
+            pictureAnalyses.Sort();
             return pictureAnalyses;
         }
 
@@ -431,7 +429,9 @@ Try Later");
         {
             this.Hide();
             (new SaveToFileInteractions()
-            { UserAnalysisLoaded = m_LoadedUserAnalysis }).ShowDialog();
+            {
+                UserAnalysisLoaded = m_LoadedUserAnalysis
+            }).ShowDialog();
             this.Show();
         }
 

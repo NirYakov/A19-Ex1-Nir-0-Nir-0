@@ -74,7 +74,7 @@ namespace A19_Ex1_Nir_0_Nir_0
             {
                 listboxTotalPosts.DataSource = r_postAnalysis.SortAlphabetical();
             }
-            else if(radioButtonLikes.Checked)
+            else if (radioButtonLikes.Checked)
             {
                 listboxTotalPosts.DataSource = r_postAnalysis.SortByNumOfLikes();
             }

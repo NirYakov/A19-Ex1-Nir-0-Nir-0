@@ -31,11 +31,11 @@ namespace FB_Logic
 
             if (i_PicutreStars)
             {
-                result = calcolatePhotoInteraction(result);
+                result = this.calcolatePhotoInteraction(result);
             }
             else
             {
-                result = calcolateOtherInteraction(result);
+                result = this.calcolateOtherInteraction(result);
             }
 
             NormalStars = result % GoldStarBar;
@@ -54,6 +54,7 @@ namespace FB_Logic
                 i_Result += 10;
                 i_Result += i_Result % 10;
             }
+
             return i_Result;
         }
 

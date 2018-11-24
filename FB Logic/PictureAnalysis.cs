@@ -34,12 +34,4 @@ namespace FB_Logic
             return this.MyStars.CompareTo(i_Other.MyStars);
         }
     }
-
-    public class PictureAnalysisSort : IComparer<PictureAnalysis>
-    {
-        public int Compare(PictureAnalysis i_RightPA, PictureAnalysis i_LeftPA)
-        {
-            return i_RightPA.CompareTo(i_LeftPA);
-        }
-    }
 }
