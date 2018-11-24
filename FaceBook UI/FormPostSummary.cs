@@ -25,12 +25,13 @@ namespace A19_Ex1_Nir_0_Nir_0
         {
             lableStatus.Text = ThePost.Message;
            
-            //foreach (Comment comment in ThePost.Comments)
-            //{
-            //    str += "," + comment.ToString();
-            //}
+            foreach (Comment comment in ThePost.Comments)
+            {
+                listBoxComments.Items.Add(comment.ToString());
+            }
 
-            lableFriendsWhoLikes.Text ="Likes" + ThePost.LikedBy.Count.ToString();
+            labelNumOfLikes.Text = ThePost.LikedBy.Count.ToString();
+
 
 
         }
