@@ -12,11 +12,11 @@ using FB_Logic;
 
 namespace A19_Ex1_Nir_0_Nir_0
 {
-    public partial class FeatureTwo : Form
+    public partial class TopWordsFeature : Form
     {
         private readonly PostAnalysis r_postAnalysis;
 
-        public FeatureTwo(User i_User)
+        public TopWordsFeature(User i_User)
         {
             InitializeComponent();
             InitializeCustomeComponent();
@@ -41,7 +41,6 @@ namespace A19_Ex1_Nir_0_Nir_0
             textBoxWordToAnalysis.Text = stringToSearch;
         }
 
-
         private void PopulateListBoxTopWords()
         {
             listBoxTopWords.Items.Clear();
@@ -60,7 +59,6 @@ namespace A19_Ex1_Nir_0_Nir_0
                 formPostSummary.ShowDialog();
             }
         }
-
 
         private void textBoxWordToAnalysis_TextChanged(object sender, EventArgs e)
         {
@@ -85,6 +83,5 @@ namespace A19_Ex1_Nir_0_Nir_0
                 listboxTotalPosts.DataSource = r_postAnalysis.SortRecent();
             }
         }
-
     }
 }

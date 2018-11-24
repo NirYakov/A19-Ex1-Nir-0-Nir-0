@@ -295,7 +295,7 @@ Plase try later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         private void btnFeature2_Click(object sender, EventArgs e)
         {
-            FeatureTwo featureTwo = new FeatureTwo(r_UserManager.User);
+            TopWordsFeature featureTwo = new TopWordsFeature(r_UserManager.User);
             featureTwo.ShowDialog();
 
         }

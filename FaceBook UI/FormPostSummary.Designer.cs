@@ -111,7 +111,7 @@
             this.Controls.Add(linkToPostOnFB);
             this.Controls.Add(this.lableStatus);
             this.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormPostSummary";
             this.Text = "FormPostSummary";
             this.Load += new System.EventHandler(this.FormPostSummary_Load);

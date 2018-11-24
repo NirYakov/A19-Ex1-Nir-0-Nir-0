@@ -1,6 +1,6 @@
 ﻿namespace A19_Ex1_Nir_0_Nir_0
 {
-    partial class FeatureTwo
+    partial class TopWordsFeature
     {
         /// <summary>
         /// Required designer variable.

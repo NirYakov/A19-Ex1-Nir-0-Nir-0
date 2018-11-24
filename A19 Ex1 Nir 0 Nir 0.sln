@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		A19 Ex1 Nir 0 Nir 0\FbGraphApiWrapper.dll = A19 Ex1 Nir 0 Nir 0\FbGraphApiWrapper.dll
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceBook UI", "FaceBook UI\FaceBook UI.csproj", "{F8A722EF-3BD9-4947-8F2D-B5F94C508132}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormUI", "FaceBook UI\WinFormUI.csproj", "{F8A722EF-3BD9-4947-8F2D-B5F94C508132}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FB Logic", "FB Logic\FB Logic.csproj", "{85DB8A7A-FF59-481D-A7EE-C96A067A93F7}"
 EndProject
