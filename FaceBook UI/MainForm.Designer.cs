@@ -63,7 +63,6 @@
             this.pictureBoxCoverPic = new System.Windows.Forms.PictureBox();
             this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
             this.pictureBoxPage = new System.Windows.Forms.PictureBox();
-            this.buttonSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).BeginInit();
@@ -269,24 +268,26 @@
             // btnFeature1
             // 
             this.btnFeature1.Enabled = false;
-            this.btnFeature1.Location = new System.Drawing.Point(44, 477);
+            this.btnFeature1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFeature1.Location = new System.Drawing.Point(44, 444);
             this.btnFeature1.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature1.Name = "btnFeature1";
-            this.btnFeature1.Size = new System.Drawing.Size(120, 44);
+            this.btnFeature1.Size = new System.Drawing.Size(177, 63);
             this.btnFeature1.TabIndex = 90;
-            this.btnFeature1.Text = "Feature 1";
+            this.btnFeature1.Text = "User Value";
             this.btnFeature1.UseVisualStyleBackColor = true;
             this.btnFeature1.Click += new System.EventHandler(this.btnFeature1_Click);
             // 
             // btnFeature2
             // 
             this.btnFeature2.Enabled = false;
-            this.btnFeature2.Location = new System.Drawing.Point(40, 540);
+            this.btnFeature2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFeature2.Location = new System.Drawing.Point(44, 530);
             this.btnFeature2.Margin = new System.Windows.Forms.Padding(4);
             this.btnFeature2.Name = "btnFeature2";
-            this.btnFeature2.Size = new System.Drawing.Size(120, 44);
+            this.btnFeature2.Size = new System.Drawing.Size(177, 63);
             this.btnFeature2.TabIndex = 92;
-            this.btnFeature2.Text = "Feature 2";
+            this.btnFeature2.Text = "Top Words";
             this.btnFeature2.UseVisualStyleBackColor = true;
             this.btnFeature2.Click += new System.EventHandler(this.btnFeature2_Click);
             // 
@@ -495,21 +496,11 @@
             this.pictureBoxPage.TabIndex = 98;
             this.pictureBoxPage.TabStop = false;
             // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Location = new System.Drawing.Point(268, 502);
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(118, 56);
-            this.buttonSettings.TabIndex = 99;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 1425);
-            this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.pictureBoxPage);
             this.Controls.Add(this.pictureBoxEvent);
             this.Controls.Add(this.panelData);
@@ -589,6 +580,5 @@
         private System.Windows.Forms.PictureBox pictureBoxCoverPic;
         private System.Windows.Forms.PictureBox pictureBoxEvent;
         private System.Windows.Forms.PictureBox pictureBoxPage;
-        private System.Windows.Forms.Button buttonSettings;
     }
 } 

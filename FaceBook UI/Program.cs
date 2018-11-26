@@ -8,10 +8,6 @@ namespace A19_Ex1_Nir_0_Nir_0
 {
     public static class Program
     {
-        // nir`s test 2!!.
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         public static void Main()
         {

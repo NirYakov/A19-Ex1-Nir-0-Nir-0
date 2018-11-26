@@ -1,7 +1,7 @@
 ﻿using System;
-using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 

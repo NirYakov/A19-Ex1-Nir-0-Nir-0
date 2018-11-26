@@ -21,7 +21,7 @@ namespace FB_Logic
         public void CalcStars(int i_LikeCount, int i_CommentCount)
         {
             const bool pictureInteraction = true;
-            MyStars.CalulateStars(pictureInteraction, i_LikeCount + i_CommentCount * k_CommentValue);
+            MyStars.CalulateStars(pictureInteraction, i_LikeCount + (i_CommentCount * k_CommentValue));
         }
 
         public override string ToString()

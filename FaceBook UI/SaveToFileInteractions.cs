@@ -32,8 +32,8 @@ namespace A19_Ex1_Nir_0_Nir_0
         public SaveToFileInteractions()
         {
             InitializeComponent();
-            labelName.BackColor = SettingUi.BackColorTheme();
-            labelName.ForeColor = SettingUi.ForeColorTheme();
+            labelName.BackColor = Color.CornflowerBlue;
+            labelName.ForeColor = Color.White;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

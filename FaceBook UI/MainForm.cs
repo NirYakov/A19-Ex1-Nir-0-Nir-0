@@ -25,8 +25,8 @@ namespace A19_Ex1_Nir_0_Nir_0
 
         private void initSettings()
         {
-            panelData.BackColor = SettingUi.BackColorTheme();
-            Color foreColor = SettingUi.ForeColorTheme();
+            panelData.BackColor = Color.CornflowerBlue;
+            Color foreColor = Color.White;
             labelFriendsStatus.ForeColor = foreColor;
             labelFriendsNum.ForeColor = foreColor;
             labelPostsStatus.ForeColor = foreColor;
@@ -38,7 +38,7 @@ namespace A19_Ex1_Nir_0_Nir_0
             labelEventsStatus.ForeColor = foreColor;
             labelEventsNum.ForeColor = foreColor;
 
-            btnLogin.BackColor = SettingUi.BackColorTheme();
+            btnLogin.BackColor = Color.CornflowerBlue;
             btnLogin.ForeColor = foreColor;
         }
 
@@ -297,7 +297,6 @@ Plase try later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         {
             TopWordsFeature featureTwo = new TopWordsFeature(r_UserManager.User);
             featureTwo.ShowDialog();
-
         }
 
         private void btnFeature1_Click(object sender, EventArgs e)

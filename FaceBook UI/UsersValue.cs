@@ -54,8 +54,8 @@ by given fields , and sort the best to top.";
             InitializeComponent();
             r_UserAnalysis = new UserAnalysis() { UserIn = i_User };
             r_PictureTopBars = new List<PictureTopBar>();
-            r_BackColor = SettingUi.BackColorTheme();
-            r_ForeColor = SettingUi.ForeColorTheme();
+            r_BackColor = Color.CornflowerBlue;
+            r_ForeColor = Color.White;
             initializeAll();
         }
 

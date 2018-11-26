@@ -84,7 +84,6 @@
     <Compile Include="SaveToFileInteractions.Designer.cs">
       <DependentUpon>SaveToFileInteractions.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingUi.cs" />
     <Compile Include="UsersValue.cs">
       <SubType>Form</SubType>
     </Compile>
