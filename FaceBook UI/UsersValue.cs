@@ -16,13 +16,13 @@ namespace WinFormUI
         private readonly Color r_ForeColor;
         private UserAnalysis m_LoadedUserAnalysis;
         private PicturesManager m_PicutresManager;
-        private int initSortGroupBoxHeight = 0;
+        private int m_InitSortGroupBoxHeight = 0;
         private string k_BringAlbumsString =
 @"Bring
 {0}
 &Albums";
 
-        private const string r_HelpMessage =
+        private const string k_HelpMessage =
 @"Hello,
 Here in UserValue you can know if some one
 of your friends or even you worth to invest
@@ -57,7 +57,7 @@ by given fields , and sort the best to top.";
         private void initializeAll()
         {
             m_PicutresManager = new PicturesManager() { MyAlbums = r_UserAnalysis.UserIn.Albums };
-            initSortGroupBoxHeight = groupBoxSortOpt.Height;
+            m_InitSortGroupBoxHeight = groupBoxSortOpt.Height;
             m_LoadedUserAnalysis = r_UserAnalysis;
             pictureBoxLaodedUser.LoadAsync(m_LoadedUserAnalysis.UserIn.PictureSqaureURL);
             initSettings();
@@ -224,7 +224,7 @@ Try Later");
             else
             {
                 movingMiddle(intervalMoving);
-                if (groupBoxSortOpt.Height >= initSortGroupBoxHeight)
+                if (groupBoxSortOpt.Height >= m_InitSortGroupBoxHeight)
                 {
                     timerSort.Stop();
                     this.Refresh();
@@ -417,7 +417,7 @@ Try Later");
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(string.Format(r_HelpMessage, Stars.GoldStarBar), "Helper for help");
+            MessageBox.Show(string.Format(k_HelpMessage, Stars.GoldStarBar), "Helper for help");
         }
 
         private void buttonSaveToFile_Click(object sender, EventArgs e)
