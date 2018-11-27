@@ -275,7 +275,7 @@ Try Later");
                 {
                     foreach (PictureTopBar item in r_PictureTopBars)
                     {
-                        item.MyUserAnalysis.clacStarsFromAnalisis(chosenParams);
+                        item.MyUserAnalysis.ClacStarsFromAnalisis(chosenParams);
                     }
 
                     r_PictureTopBars.Sort(new PictureTopBarStarSort());

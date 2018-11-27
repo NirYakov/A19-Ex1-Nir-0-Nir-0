@@ -166,7 +166,7 @@ namespace WinFormUI
         {
             try
             {
-                r_UserManager.PostStatus(textBoxPost.Text);
+                r_UserManager.User.PostStatus(textBoxPost.Text);
             }
             catch (Exception)
             {

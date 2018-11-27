@@ -135,7 +135,7 @@ namespace FB_Logic
             return UserIn.PhotosTaggedIn.Count + UserIn.PostsTaggedIn.Count;
         }
 
-        public void clacStarsFromAnalisis(eStarsParameters i_eParameter)
+        public void ClacStarsFromAnalisis(eStarsParameters i_eParameter)
         {
             List<int> allParameters = new List<int>();
             const bool pictureInteraction = true;

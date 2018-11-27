@@ -67,12 +67,6 @@ namespace FB_Logic
         public string UserPictureUrlCover
         {
             get { return m_LoggedInUser.Cover.SourceURL; }
-        }
-
-        public string PostStatus(string i_Text)
-        {
-            Status status = m_LoggedInUser.PostStatus(i_Text);
-            return string.Format("Status Posted. ID: {0}", status.Id);
-        }        
+        }      
     }
 }

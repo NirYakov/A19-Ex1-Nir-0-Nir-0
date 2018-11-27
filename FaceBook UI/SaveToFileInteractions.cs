@@ -9,7 +9,7 @@ namespace WinFormUI
 {
     public partial class SaveToFileInteractions : Form
     {
-        public UserAnalysis m_UserAnalysisLoaded;
+        private UserAnalysis m_UserAnalysisLoaded;
         public UserAnalysis UserAnalysisLoaded
         {
             get

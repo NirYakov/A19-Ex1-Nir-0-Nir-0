@@ -37,9 +37,9 @@ namespace FB_Logic
 
         private class sortPostAlphabetical : IComparer<Post>
         {
-            public int Compare(Post x, Post y)
+            public int Compare(Post i_X, Post i_Y)
             {
-                return x.Message.CompareTo(y.Message);
+                return i_X.Message.CompareTo(i_Y.Message);
             }
         }
 
@@ -55,9 +55,9 @@ namespace FB_Logic
 
         private class sortPostByLikes : IComparer<Post>
         {
-            public int Compare(Post x, Post y)
+            public int Compare(Post i_X, Post i_Y)
             {
-                return x.LikedBy.Count.CompareTo(y.LikedBy.Count);
+                return i_X.LikedBy.Count.CompareTo(i_Y.LikedBy.Count);
             }
         }
 
