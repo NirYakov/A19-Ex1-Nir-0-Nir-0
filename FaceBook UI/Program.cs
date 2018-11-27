@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace A19_Ex1_Nir_0_Nir_0
+namespace WinFormUI
 {
     public static class Program
     {

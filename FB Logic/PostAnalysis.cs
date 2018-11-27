@@ -1,13 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Generic;
 using FacebookWrapper.ObjectModel;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace FB_Logic
 {
-   public class PostAnalysis
+    public class PostAnalysis
     {
         public User TheUser { get; set; }
 

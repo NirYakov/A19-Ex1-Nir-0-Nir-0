@@ -1,4 +1,4 @@
-﻿namespace A19_Ex1_Nir_0_Nir_0
+﻿namespace WinFormUI
 {
     partial class SaveToFileInteractions
     {

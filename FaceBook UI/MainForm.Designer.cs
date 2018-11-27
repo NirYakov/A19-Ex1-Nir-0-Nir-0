@@ -1,4 +1,4 @@
-﻿namespace A19_Ex1_Nir_0_Nir_0
+﻿namespace WinFormUI
 {
     partial class MainForm
     {
@@ -74,9 +74,9 @@
             // 
             // pictureBoxUser
             // 
-            this.pictureBoxUser.ErrorImage = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
-            this.pictureBoxUser.Image = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
-            this.pictureBoxUser.InitialImage = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.faceLogo;
+            this.pictureBoxUser.ErrorImage = global::WinFormUI.Properties.Resources.faceLogo;
+            this.pictureBoxUser.Image = global::WinFormUI.Properties.Resources.faceLogo;
+            this.pictureBoxUser.InitialImage = global::WinFormUI.Properties.Resources.faceLogo;
             this.pictureBoxUser.Location = new System.Drawing.Point(44, 140);
             this.pictureBoxUser.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxUser.Name = "pictureBoxUser";
@@ -294,7 +294,7 @@
             // pictureBoxLogOut
             // 
             this.pictureBoxLogOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxLogOut.Image = global::A19_Ex1_Nir_0_Nir_0.Properties.Resources.logout4;
+            this.pictureBoxLogOut.Image = global::WinFormUI.Properties.Resources.logout4;
             this.pictureBoxLogOut.Location = new System.Drawing.Point(324, 302);
             this.pictureBoxLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxLogOut.Name = "pictureBoxLogOut";

@@ -1,4 +1,4 @@
-﻿namespace A19_Ex1_Nir_0_Nir_0
+﻿namespace WinFormUI
 {
     partial class UsersValue
     {
@@ -651,7 +651,7 @@
             this.MinimumSize = new System.Drawing.Size(1350, 1350);
             this.Name = "UsersValue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "UsersValue";
+            this.Text = "Users Value";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBoxAdvenceOpt.ResumeLayout(false);

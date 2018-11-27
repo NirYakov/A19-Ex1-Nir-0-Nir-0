@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FB_Logic
 {
     public class Stars : IComparable<Stars>
     {
-        public static int GoldStarBar { get; }
         private const float k_PicStartsInterval = 1.5f;
+
+        public static int GoldStarBar { get; }
 
         public int GoldenStars { get; private set; } = 0;
 
@@ -17,7 +14,7 @@ namespace FB_Logic
 
         static Stars()
         {
-            GoldStarBar = 60; // bm maybe by static setting or somethign like that.
+            GoldStarBar = 60;
         }
 
         public void CalulateStars(bool i_PicutreStars, params int[] i_Pra)

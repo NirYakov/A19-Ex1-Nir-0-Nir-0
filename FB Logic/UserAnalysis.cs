@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using FacebookWrapper.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FB_Logic
 {
     public class UserAnalysis : IComparable<UserAnalysis>
     {
         public User UserIn { get; set; }
+
         public Stars MyStars { get; }
 
         private int? m_PostInteraction;

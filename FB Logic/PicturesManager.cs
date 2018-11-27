@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
-using System;
 using System.Linq;
 using FacebookWrapper.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FB_Logic
 {
@@ -32,7 +29,9 @@ namespace FB_Logic
     public struct ItemInfo
     {
         public string ItemID { get; set; }
+
         public string ItemName { get; set; }
+
         public string ItemUrl { get; set; }
 
         public ItemInfo(string i_ItemID, string i_ItemName, string i_ItemUrl)

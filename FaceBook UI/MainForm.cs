@@ -1,16 +1,10 @@
-﻿using FacebookWrapper.ObjectModel;
-using FB_Logic;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using FB_Logic;
+using FacebookWrapper.ObjectModel;
 
-namespace A19_Ex1_Nir_0_Nir_0
+namespace WinFormUI
 {
     public partial class MainForm : Form
     {

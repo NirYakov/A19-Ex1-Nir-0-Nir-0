@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace A19_Ex1_Nir_0_Nir_0.Properties
+namespace WinFormUI.Properties
 {
 
 

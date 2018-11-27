@@ -1,16 +1,9 @@
 ﻿using System;
-using FacebookWrapper.ObjectModel;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
-namespace A19_Ex1_Nir_0_Nir_0
+namespace WinFormUI
 {
     public partial class FormPostSummary : Form
     {

@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FB_Logic
 {
     public class PictureAnalysis : IComparable<PictureAnalysis>
     {
         private const int k_CommentValue = 2;
+
         public Stars MyStars { get; }
+
         public string PictureUrl { get; set; }
+
         public string PictureID { get; set; }
 
         public PictureAnalysis()
